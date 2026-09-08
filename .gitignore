@@ -1,0 +1,23 @@
+# --- NetBeans (Ant projects) ---
+# build/dist are generated; nbproject/ itself MUST stay in the repo
+# so the TA can open the project in NetBeans.
+build/
+dist/
+nbbuild/
+nbdist/
+nbproject/private/
+.nb-gradle/
+
+# --- Java ---
+*.class
+*.jar
+*.war
+*.ear
+
+# --- macOS ---
+.DS_Store
+
+# --- Other IDEs ---
+.idea/
+*.iml
+.vscode/
