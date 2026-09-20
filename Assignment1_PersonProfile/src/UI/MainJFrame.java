@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Module.Address;
 import Module.Person;
 
 /**
@@ -16,9 +17,13 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     Person person;
+    Address localAddress;
+    Address homeAddress;
     public MainJFrame() {
         initComponents();
         person = new Person();
+        localAddress = person.getLocalAddress();
+        homeAddress = person.getHomeAddress();
     }
 
     /**
@@ -45,7 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPane.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        controlPane.setBackground(new java.awt.Color(0, 153, 153));
 
         lblTitle.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         lblTitle.setText("Person Profile");
@@ -65,12 +70,32 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         btnCrtHome.setText("Create Home Address");
+        btnCrtHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrtHomeActionPerformed(evt);
+            }
+        });
 
         btnViewHome.setText("View Home Address");
+        btnViewHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewHomeActionPerformed(evt);
+            }
+        });
 
         btnCrtLocal.setText("Create Local Address");
+        btnCrtLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrtLocalActionPerformed(evt);
+            }
+        });
 
         btnViewLocal.setText("View Local Address");
+        btnViewLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewLocalActionPerformed(evt);
+            }
+        });
 
         btnCrtBank.setText("Create Bank Account");
 
@@ -92,12 +117,10 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(btnCrtHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnViewHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(controlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnViewBank, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCrtBank, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(controlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnViewLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCrtLocal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnViewBank, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCrtBank, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnViewLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCrtLocal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -146,16 +169,34 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrtPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtPersonActionPerformed
-        // TODO add your handling code here:
         CreatePersonJPanel createPersonJPanel = new CreatePersonJPanel(person);
         splitPane.setRightComponent(createPersonJPanel);
     }//GEN-LAST:event_btnCrtPersonActionPerformed
 
     private void btnViewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPersonActionPerformed
-        // TODO add your handling code here:
         ViewPersonJPanel viewPersonJPanel = new ViewPersonJPanel(person);
         splitPane.setRightComponent(viewPersonJPanel);
     }//GEN-LAST:event_btnViewPersonActionPerformed
+
+    private void btnCrtHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtHomeActionPerformed
+        CreateAddressJPanel createAddressJPanel = new CreateAddressJPanel(homeAddress, "home");
+        splitPane.setRightComponent(createAddressJPanel);
+    }//GEN-LAST:event_btnCrtHomeActionPerformed
+
+    private void btnViewHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHomeActionPerformed
+        ViewAddressJPanel viewAddressJPanel = new ViewAddressJPanel(homeAddress, "home");
+        splitPane.setRightComponent(viewAddressJPanel);
+    }//GEN-LAST:event_btnViewHomeActionPerformed
+
+    private void btnCrtLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtLocalActionPerformed
+        CreateAddressJPanel createAddressJPanel = new CreateAddressJPanel(localAddress, "local");
+        splitPane.setRightComponent(createAddressJPanel);
+    }//GEN-LAST:event_btnCrtLocalActionPerformed
+
+    private void btnViewLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewLocalActionPerformed
+        ViewAddressJPanel viewAddressJPanel = new ViewAddressJPanel(localAddress, "local");
+        splitPane.setRightComponent(viewAddressJPanel);
+    }//GEN-LAST:event_btnViewLocalActionPerformed
 
     /**
      * @param args the command line arguments

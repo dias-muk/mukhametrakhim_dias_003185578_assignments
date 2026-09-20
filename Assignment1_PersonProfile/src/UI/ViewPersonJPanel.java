@@ -134,9 +134,7 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 
-    private void display() {
-        System.out.println(person.getName());
-        
+    private void display() {        
         fieldName.setText(person.getName());
         fieldEmail.setText(person.getEmail());
         fieldPhoneNumber.setText(person.getPhoneNumber());

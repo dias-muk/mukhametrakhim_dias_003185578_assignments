@@ -14,11 +14,16 @@ public class BankAccount {
     private String accountType;
     private String branchCode;
     private String balance;
+    private String personName;
     
     private Person person;
     
     public String getPersonName() {
-        return person.getName();
+        return personName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
     }
 
     public Person getPerson() {
@@ -27,6 +32,9 @@ public class BankAccount {
 
     public void setPerson(Person person) {
         this.person = person;
+        if (person != null) {
+            this.personName = person.getName();
+        }
     }
 
     public String getAccountNumber() {

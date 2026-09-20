@@ -46,7 +46,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         btnFemale = new javax.swing.JRadioButton();
         btnSave = new javax.swing.JButton();
 
-        setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        setBackground(new java.awt.Color(0, 255, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblTitle.setFont(new java.awt.Font("Andale Mono", 1, 24)); // NOI18N

@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Module.Address;
+
 /**
  *
  * @author dias
@@ -13,8 +15,12 @@ public class ViewAddressJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewAddressJPanel
      */
-    public ViewAddressJPanel() {
+    Address address;
+    public ViewAddressJPanel(Address a, String type) {
         initComponents();
+        address = a;
+        lblTitle.setText("View " + (type.equals("home") ? "Home" : "Local") + " Address");
+        display();
     }
 
     /**
@@ -26,19 +32,134 @@ public class ViewAddressJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        lblPersonName = new javax.swing.JLabel();
+        lblStreet = new javax.swing.JLabel();
+        lblCity = new javax.swing.JLabel();
+        lblState = new javax.swing.JLabel();
+        lblPostalCode = new javax.swing.JLabel();
+        lblUnitNumber = new javax.swing.JLabel();
+        fieldPersonName = new javax.swing.JTextField();
+        fieldStreet = new javax.swing.JTextField();
+        fieldCity = new javax.swing.JTextField();
+        fieldState = new javax.swing.JTextField();
+        fieldPostalCode = new javax.swing.JTextField();
+        fieldUnitNumber = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        lblTitle.setFont(new java.awt.Font("Andale Mono", 1, 24)); // NOI18N
+        lblTitle.setText("View");
+
+        lblPersonName.setText("Person Name");
+
+        lblStreet.setText("Street");
+
+        lblCity.setText("City");
+
+        lblState.setText("State");
+
+        lblPostalCode.setText("Postal Code");
+
+        lblUnitNumber.setText("Unit Number");
+
+        fieldUnitNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldUnitNumberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblTitle)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblPersonName)
+                                .addComponent(lblStreet)
+                                .addComponent(lblCity)
+                                .addComponent(lblState)
+                                .addComponent(lblPostalCode)
+                                .addComponent(lblUnitNumber))
+                            .addGap(55, 55, 55)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(fieldUnitNumber)
+                                .addComponent(fieldPostalCode)
+                                .addComponent(fieldState)
+                                .addComponent(fieldCity)
+                                .addComponent(fieldStreet)
+                                .addComponent(fieldPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(116, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(lblTitle)
+                    .addGap(46, 46, 46)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblPersonName)
+                        .addComponent(fieldPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblStreet)
+                        .addComponent(fieldStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblCity)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblState)
+                                .addComponent(fieldState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblPostalCode)
+                                .addComponent(fieldPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblUnitNumber)
+                                .addComponent(fieldUnitNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(fieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(145, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fieldUnitNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUnitNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldUnitNumberActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fieldCity;
+    private javax.swing.JTextField fieldPersonName;
+    private javax.swing.JTextField fieldPostalCode;
+    private javax.swing.JTextField fieldState;
+    private javax.swing.JTextField fieldStreet;
+    private javax.swing.JTextField fieldUnitNumber;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblPersonName;
+    private javax.swing.JLabel lblPostalCode;
+    private javax.swing.JLabel lblState;
+    private javax.swing.JLabel lblStreet;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUnitNumber;
     // End of variables declaration//GEN-END:variables
+
+    private void display() {
+        fieldPersonName.setText(address.getPersonName());
+        fieldStreet.setText(address.getStreet());
+        fieldCity.setText(address.getCity());
+        fieldState.setText(address.getState());
+        fieldPostalCode.setText(address.getPostalCode());
+        fieldUnitNumber.setText(address.getUnitNumber());
+    }
 }

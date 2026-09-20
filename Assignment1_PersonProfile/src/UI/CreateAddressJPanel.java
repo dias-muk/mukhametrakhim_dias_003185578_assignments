@@ -4,6 +4,9 @@
  */
 package UI;
 
+import Module.Address;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dias
@@ -13,8 +16,16 @@ public class CreateAddressJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateAddressJPanel
      */
-    public CreateAddressJPanel() {
+    Address address;
+    String addressType;
+    public CreateAddressJPanel(Address a, String type) {
         initComponents();
+        address = a;
+        addressType = type;
+        if (address.getPerson() != null && address.getPerson().getName() != null) {
+            fieldPersonName.setText(address.getPerson().getName());
+        }
+        lblTitle.setText("Create " + (addressType.equals("home") ? "Home" : "Local") + " Address");
     }
 
     /**
@@ -26,19 +37,180 @@ public class CreateAddressJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        lblPersonName = new javax.swing.JLabel();
+        lblStreet = new javax.swing.JLabel();
+        lblCity = new javax.swing.JLabel();
+        lblState = new javax.swing.JLabel();
+        lblPostalCode = new javax.swing.JLabel();
+        lblUnitNumber = new javax.swing.JLabel();
+        fieldPersonName = new javax.swing.JTextField();
+        fieldStreet = new javax.swing.JTextField();
+        fieldCity = new javax.swing.JTextField();
+        fieldState = new javax.swing.JTextField();
+        fieldPostalCode = new javax.swing.JTextField();
+        fieldUnitNumber = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(204, 255, 204));
+
+        lblTitle.setFont(new java.awt.Font("Andale Mono", 1, 24)); // NOI18N
+        lblTitle.setText("Create");
+
+        lblPersonName.setText("Person Name");
+
+        lblStreet.setText("Street");
+
+        lblCity.setText("City");
+
+        lblState.setText("State");
+
+        lblPostalCode.setText("Postal Code");
+
+        lblUnitNumber.setText("Unit Number");
+
+        fieldUnitNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldUnitNumberActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPersonName)
+                                    .addComponent(lblStreet)
+                                    .addComponent(lblCity)
+                                    .addComponent(lblState)
+                                    .addComponent(lblPostalCode)
+                                    .addComponent(lblUnitNumber))
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fieldUnitNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(fieldPostalCode)
+                                    .addComponent(fieldState)
+                                    .addComponent(fieldCity)
+                                    .addComponent(fieldStreet)
+                                    .addComponent(fieldPersonName)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(lblTitle)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPersonName)
+                    .addComponent(fieldPersonName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblStreet)
+                    .addComponent(fieldStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCity)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblState)
+                            .addComponent(fieldState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPostalCode)
+                            .addComponent(fieldPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUnitNumber)
+                            .addComponent(fieldUnitNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(fieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(87, 87, 87))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void fieldUnitNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUnitNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldUnitNumberActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        String personName = fieldPersonName.getText();
+        String street = fieldStreet.getText();
+        String city = fieldCity.getText();
+        String state = fieldState.getText();
+        String postalCode = fieldPostalCode.getText();
+        String unitNumber= fieldUnitNumber.getText();
+        
+        if(!require(personName, "Person Name")) return;
+        if(!require(street, "Street")) return;
+        if(!require(city, "City")) return;
+        if(!require(state, "State")) return;
+        if(!require(postalCode, "Postal Code")) return;
+        
+        
+        
+        address.setPersonName(personName);
+        address.setStreet(street);
+        address.setCity(city);
+        address.setState(state);
+        address.setPostalCode(postalCode);
+        address.setUnitNumber(unitNumber);
+
+        JOptionPane.showMessageDialog(this, (addressType.equals("home") ? "Home" : "Local") + "Address saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        
+        fieldPersonName.setText("");
+        fieldStreet.setText("");
+        fieldCity.setText("");
+        fieldState.setText("");
+        fieldPostalCode.setText("");
+        fieldUnitNumber.setText("");
+    }//GEN-LAST:event_btnSaveActionPerformed
+    private boolean isBlank(String text){
+        return text == null || text.trim().isEmpty();
+    }
+    
+    private boolean require(String value, String label){
+        if(isBlank(value)){
+            JOptionPane.showMessageDialog(this,label + " is required");
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
+    private javax.swing.JTextField fieldCity;
+    private javax.swing.JTextField fieldPersonName;
+    private javax.swing.JTextField fieldPostalCode;
+    private javax.swing.JTextField fieldState;
+    private javax.swing.JTextField fieldStreet;
+    private javax.swing.JTextField fieldUnitNumber;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblPersonName;
+    private javax.swing.JLabel lblPostalCode;
+    private javax.swing.JLabel lblState;
+    private javax.swing.JLabel lblStreet;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUnitNumber;
     // End of variables declaration//GEN-END:variables
 }
