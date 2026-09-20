@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="66" red="66" type="rgb"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="440" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblPersonName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAccountNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBankName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAccountType" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBranchCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBalance" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="fieldBalance" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fieldBranchCode" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fieldAccountType" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fieldBankName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fieldAccountNumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fieldPersonName" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="97" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="480" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblPersonName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fieldPersonName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblAccountNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="fieldAccountNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblBankName" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAccountType" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldAccountType" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblBranchCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldBranchCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="fieldBankName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="145" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblTitle">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Andale Mono" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="View Bank Account"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPersonName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Person Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAccountNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Account Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBankName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bank Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAccountType">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Account Type"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBranchCode">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Branch Code"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBalance">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Balance"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldPersonName">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldAccountNumber">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldBankName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldBankNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldAccountType">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldBranchCode">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldBalance">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldBalanceActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

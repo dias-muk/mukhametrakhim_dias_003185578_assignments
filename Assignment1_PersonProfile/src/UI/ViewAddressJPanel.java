@@ -161,5 +161,12 @@ public class ViewAddressJPanel extends javax.swing.JPanel {
         fieldState.setText(address.getState());
         fieldPostalCode.setText(address.getPostalCode());
         fieldUnitNumber.setText(address.getUnitNumber());
+        
+        fieldPersonName.setEditable(false);
+        fieldStreet.setEditable(false);
+        fieldCity.setEditable(false);
+        fieldState.setEditable(false);
+        fieldPostalCode.setEditable(false);
+        fieldUnitNumber.setEditable(false);
     }
 }

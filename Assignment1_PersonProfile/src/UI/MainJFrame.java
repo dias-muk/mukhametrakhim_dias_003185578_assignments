@@ -5,6 +5,7 @@
 package UI;
 
 import Module.Address;
+import Module.BankAccount;
 import Module.Person;
 
 /**
@@ -19,11 +20,13 @@ public class MainJFrame extends javax.swing.JFrame {
     Person person;
     Address localAddress;
     Address homeAddress;
+    BankAccount bankAccount;
     public MainJFrame() {
         initComponents();
         person = new Person();
         localAddress = person.getLocalAddress();
         homeAddress = person.getHomeAddress();
+        bankAccount = person.getBankAccount();
     }
 
     /**
@@ -98,8 +101,18 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         btnCrtBank.setText("Create Bank Account");
+        btnCrtBank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrtBankActionPerformed(evt);
+            }
+        });
 
         btnViewBank.setText("View Bank Account");
+        btnViewBank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewBankActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlPaneLayout = new javax.swing.GroupLayout(controlPane);
         controlPane.setLayout(controlPaneLayout);
@@ -197,6 +210,15 @@ public class MainJFrame extends javax.swing.JFrame {
         ViewAddressJPanel viewAddressJPanel = new ViewAddressJPanel(localAddress, "local");
         splitPane.setRightComponent(viewAddressJPanel);
     }//GEN-LAST:event_btnViewLocalActionPerformed
+
+    private void btnCrtBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtBankActionPerformed
+        CreateBankAccountJPanel createBankAccountJPanel = new CreateBankAccountJPanel(bankAccount);
+        splitPane.setRightComponent(createBankAccountJPanel);        
+    }//GEN-LAST:event_btnCrtBankActionPerformed
+
+    private void btnViewBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBankActionPerformed
+        ViewBankAccountJPanel viewBankAccountJPanel = new ViewBankAccountJPanel(bankAccount);
+        splitPane.setRightComponent(viewBankAccountJPanel);      }//GEN-LAST:event_btnViewBankActionPerformed
 
     /**
      * @param args the command line arguments
