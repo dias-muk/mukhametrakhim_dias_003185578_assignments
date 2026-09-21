@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
@@ -8,15 +9,25 @@ import Module.Person;
 import javax.swing.JOptionPane;
 
 /**
+ * Form for entering the five attributes of a {@link Module.Person}.
+ *
+ * <p>Every field is required except gender, which is chosen with radio
+ * buttons. Nothing is written to the person until all required fields pass
+ * validation.</p>
  *
  * @author dias
  */
 public class CreatePersonJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreatePersonJPanel
+     * The person this form writes into, supplied by MainJFrame.
      */
     Person person;
+    /**
+     * Builds the form and remembers the person the save button writes to.
+     *
+     * @param p the person object this form fills in
+     */
     public CreatePersonJPanel(Person p) {
         initComponents();
         person = p;
@@ -156,6 +167,8 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnMaleActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // Read every input field first, then validate, then write. Nothing
+        // reaches the Person object unless all required fields pass.
         String name = fieldName.getText();
         String dateOfBrith = fieldDateOfBirth.getText();
         String email = fieldEmail.getText();
@@ -173,6 +186,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         if(!require(email, "Email")) return;
         if(!require(phoneNumber, "Phone Number")) return;
         
+        // Validation passed, so copy the entered values into the model.
         person.setName(name);
         person.setEmail(email);
         person.setDateOfBirth(dateOfBrith);
@@ -181,16 +195,30 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "New Person added", "Success", JOptionPane.INFORMATION_MESSAGE);
         
+        // Blank the form so the next entry starts clean.
         fieldName.setText("");
         fieldDateOfBirth.setText("");
         fieldEmail.setText("");
         fieldPhoneNumber.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    /**
+     * Reports whether a field was left empty or filled with spaces only.
+     *
+     * @param text the raw text from an input field
+     * @return true when there is nothing usable in the field
+     */
     private boolean isBlank(String text){
         return text == null || text.trim().isEmpty();
     }
     
+    /**
+     * Checks one required field and warns the user if it is empty.
+     *
+     * @param value the raw text from the field
+     * @param label the field name to show in the warning
+     * @return true when the field is filled in and saving may continue
+     */
     private boolean require(String value, String label){
         if(isBlank(value)){
             JOptionPane.showMessageDialog(this,label + " is required");

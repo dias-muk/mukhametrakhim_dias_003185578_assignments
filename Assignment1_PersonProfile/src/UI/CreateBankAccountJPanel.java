@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
@@ -8,16 +9,26 @@ import Module.BankAccount;
 import javax.swing.JOptionPane;
 
 /**
+ * Form for entering the attributes of a {@link Module.BankAccount}.
+ *
+ * <p>All six fields are required. As on the address form, the person-name
+ * field is pre-filled from the account's linked person when one is already
+ * known.</p>
  *
  * @author dias
  */
 public class CreateBankAccountJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreateBankAccountJPanel
+     * The bank account this form writes into, supplied by MainJFrame.
      */
     BankAccount bankAccount;
     
+    /**
+     * Builds the form and remembers the account the save button writes to.
+     *
+     * @param ba the bank account this form fills in
+     */
     public CreateBankAccountJPanel(BankAccount ba) {
         initComponents();
         bankAccount = ba;
@@ -161,6 +172,8 @@ public class CreateBankAccountJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldBalanceActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // Read every input field first, then validate, then write. Nothing
+        // reaches the BankAccount object unless all required fields pass.
         String personName = fieldPersonName.getText();
         String accountNumber = fieldAccountNumber.getText();
         String bankName = fieldBankName.getText();
@@ -175,6 +188,7 @@ public class CreateBankAccountJPanel extends javax.swing.JPanel {
         if(!require(branchCode, "Branch Code")) return;
         if(!require(balance, "Balance")) return;
 
+        // Validation passed, so copy the entered values into the model.
         bankAccount.setPersonName(personName);
         bankAccount.setAccountNumber(accountNumber);
         bankAccount.setBankName(bankName);
@@ -184,6 +198,7 @@ public class CreateBankAccountJPanel extends javax.swing.JPanel {
 
         JOptionPane.showMessageDialog(this, "Bank Account saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
+        // Blank the form so the next entry starts clean.
         fieldPersonName.setText("");
         fieldAccountNumber.setText("");
         fieldBankName.setText("");
@@ -192,10 +207,23 @@ public class CreateBankAccountJPanel extends javax.swing.JPanel {
         fieldBalance.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
     
+    /**
+     * Reports whether a field was left empty or filled with spaces only.
+     *
+     * @param text the raw text from an input field
+     * @return true when there is nothing usable in the field
+     */
     private boolean isBlank(String text){
         return text == null || text.trim().isEmpty();
     }
     
+    /**
+     * Checks one required field and warns the user if it is empty.
+     *
+     * @param value the raw text from the field
+     * @param label the field name to show in the warning
+     * @return true when the field is filled in and saving may continue
+     */
     private boolean require(String value, String label){
         if(isBlank(value)){
             JOptionPane.showMessageDialog(this,label + " is required");

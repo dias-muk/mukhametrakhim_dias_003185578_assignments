@@ -1,21 +1,31 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
 import Module.BankAccount;
 
 /**
+ * Read-only view of a {@link Module.BankAccount}.
+ *
+ * <p>The fields are filled from the account and then made non-editable. The
+ * balance is shown with a currency symbol in front of the stored value.</p>
  *
  * @author dias
  */
 public class ViewBankAccountJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ViewBankAccountJPanel
+     * The bank account whose stored values this panel shows.
      */
     BankAccount bankAccount;
+    /**
+     * Builds the panel and immediately shows the account's stored values.
+     *
+     * @param ba the bank account to display
+     */
     public ViewBankAccountJPanel(BankAccount ba) {
         initComponents();
         bankAccount = ba;
@@ -163,6 +173,12 @@ public class ViewBankAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Copies the account attributes into the fields and locks them.
+     *
+     * <p>The balance is shown with a currency symbol in front of the stored
+     * text; the stored attribute itself is unchanged.</p>
+     */
     private void display() {
         fieldPersonName.setText(bankAccount.getPersonName());
         fieldAccountNumber.setText(bankAccount.getAccountNumber());

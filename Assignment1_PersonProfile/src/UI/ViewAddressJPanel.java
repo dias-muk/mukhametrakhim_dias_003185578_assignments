@@ -1,21 +1,33 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
 import Module.Address;
 
 /**
+ * Read-only view of an {@link Module.Address}.
+ *
+ * <p>Reused for both the home address and the local address, exactly as
+ * {@link CreateAddressJPanel} is. The fields are filled from the address and
+ * then made non-editable.</p>
  *
  * @author dias
  */
 public class ViewAddressJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ViewAddressJPanel
+     * The address whose stored values this panel shows.
      */
     Address address;
+    /**
+     * Builds the read-only view for one of the two addresses.
+     *
+     * @param a    the address to display
+     * @param type either "home" or "local"; changes only the title shown
+     */
     public ViewAddressJPanel(Address a, String type) {
         initComponents();
         address = a;
@@ -154,6 +166,12 @@ public class ViewAddressJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblUnitNumber;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Copies the address attributes into the fields and locks them.
+     *
+     * <p>The fields are made non-editable rather than replaced with labels so
+     * the layout matches the matching entry form.</p>
+     */
     private void display() {
         fieldPersonName.setText(address.getPersonName());
         fieldStreet.setText(address.getStreet());

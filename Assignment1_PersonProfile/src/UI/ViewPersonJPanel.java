@@ -1,21 +1,32 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
 import Module.Person;
 
 /**
+ * Read-only view of a {@link Module.Person}.
+ *
+ * <p>The fields are filled from the person object and then made
+ * non-editable, so this panel displays the stored values without being able to
+ * change them.</p>
  *
  * @author dias
  */
 public class ViewPersonJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ViewPersonJPanel
+     * The person whose stored values this panel shows.
      */
     Person person;
+    /**
+     * Builds the panel and immediately shows the person's stored values.
+     *
+     * @param p the person to display
+     */
     public ViewPersonJPanel(Person p) {
         initComponents();
         person = p;
@@ -134,6 +145,12 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Copies the person's attributes into the fields and locks them.
+     *
+     * <p>The fields are made non-editable rather than replaced with labels so
+     * the layout matches the matching entry form.</p>
+     */
     private void display() {        
         fieldName.setText(person.getName());
         fieldEmail.setText(person.getEmail());

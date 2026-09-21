@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
@@ -9,18 +10,39 @@ import Module.BankAccount;
 import Module.Person;
 
 /**
+ * The main window and the only frame in the application.
+ *
+ * <p>The window is a {@link javax.swing.JSplitPane}. The left side is a fixed
+ * control panel of eight buttons, one per use case. The right side is the work
+ * area: each button swaps in a fresh panel with
+ * {@code splitPane.setRightComponent(...)}, which is how the application moves
+ * between screens without opening new windows.</p>
+ *
+ * <p>The frame creates one {@link Module.Person} at start-up and hands the
+ * same object, or one of its related objects, to every panel it opens. That is
+ * what lets data entered on one screen appear on another.</p>
  *
  * @author dias
  */
 public class MainJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainJFrame
+     * The person profile this window creates and edits.
      */
+    // The single Person the whole application edits, plus shortcuts to the
+    // three objects it is related to. Every panel is handed one of these, so
+    // all screens read and write the same data.
     Person person;
     Address localAddress;
     Address homeAddress;
     BankAccount bankAccount;
+    /**
+     * Builds the window and creates the person the application will edit.
+     *
+     * <p>The related objects are read out of the new person rather than
+     * constructed here, because {@link Person} already creates them and wires
+     * the links.</p>
+     */
     public MainJFrame() {
         initComponents();
         person = new Person();
@@ -182,41 +204,49 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrtPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtPersonActionPerformed
+        // Swap the work area for the person entry form.
         CreatePersonJPanel createPersonJPanel = new CreatePersonJPanel(person);
         splitPane.setRightComponent(createPersonJPanel);
     }//GEN-LAST:event_btnCrtPersonActionPerformed
 
     private void btnViewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPersonActionPerformed
+        // Swap the work area for the read-only person view.
         ViewPersonJPanel viewPersonJPanel = new ViewPersonJPanel(person);
         splitPane.setRightComponent(viewPersonJPanel);
     }//GEN-LAST:event_btnViewPersonActionPerformed
 
     private void btnCrtHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtHomeActionPerformed
+        // Reuse the address form, pointed at the home address.
         CreateAddressJPanel createAddressJPanel = new CreateAddressJPanel(homeAddress, "home");
         splitPane.setRightComponent(createAddressJPanel);
     }//GEN-LAST:event_btnCrtHomeActionPerformed
 
     private void btnViewHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHomeActionPerformed
+        // Reuse the address view, pointed at the home address.
         ViewAddressJPanel viewAddressJPanel = new ViewAddressJPanel(homeAddress, "home");
         splitPane.setRightComponent(viewAddressJPanel);
     }//GEN-LAST:event_btnViewHomeActionPerformed
 
     private void btnCrtLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtLocalActionPerformed
+        // The same form class again, this time pointed at the local address.
         CreateAddressJPanel createAddressJPanel = new CreateAddressJPanel(localAddress, "local");
         splitPane.setRightComponent(createAddressJPanel);
     }//GEN-LAST:event_btnCrtLocalActionPerformed
 
     private void btnViewLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewLocalActionPerformed
+        // The same view class again, this time pointed at the local address.
         ViewAddressJPanel viewAddressJPanel = new ViewAddressJPanel(localAddress, "local");
         splitPane.setRightComponent(viewAddressJPanel);
     }//GEN-LAST:event_btnViewLocalActionPerformed
 
     private void btnCrtBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrtBankActionPerformed
+        // Swap the work area for the bank account entry form.
         CreateBankAccountJPanel createBankAccountJPanel = new CreateBankAccountJPanel(bankAccount);
         splitPane.setRightComponent(createBankAccountJPanel);        
     }//GEN-LAST:event_btnCrtBankActionPerformed
 
     private void btnViewBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBankActionPerformed
+        // Swap the work area for the read-only bank account view.
         ViewBankAccountJPanel viewBankAccountJPanel = new ViewBankAccountJPanel(bankAccount);
         splitPane.setRightComponent(viewBankAccountJPanel);      }//GEN-LAST:event_btnViewBankActionPerformed
 

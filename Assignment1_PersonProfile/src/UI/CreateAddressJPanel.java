@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assessment 1 - Person Profile
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
@@ -8,16 +9,30 @@ import Module.Address;
 import javax.swing.JOptionPane;
 
 /**
+ * Form for entering the attributes of an {@link Module.Address}.
+ *
+ * <p>The same panel is reused for the home address and the local address. The
+ * {@code addressType} argument decides only the wording of the title and the
+ * confirmation message; the fields themselves are identical.</p>
+ *
+ * <p>The person-name field is pre-filled from the address's linked person when
+ * one is already known, so the name does not have to be typed twice.</p>
  *
  * @author dias
  */
 public class CreateAddressJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreateAddressJPanel
+     * The address this form writes into, and which of the two it is.
      */
     Address address;
     String addressType;
+    /**
+     * Builds the form for one of the two addresses.
+     *
+     * @param a    the address object this form fills in
+     * @param type either "home" or "local"; changes only the wording shown
+     */
     public CreateAddressJPanel(Address a, String type) {
         initComponents();
         address = a;
@@ -154,6 +169,8 @@ public class CreateAddressJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldUnitNumberActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // Read every input field first, then validate, then write. Nothing
+        // reaches the Address object unless all required fields pass.
         String personName = fieldPersonName.getText();
         String street = fieldStreet.getText();
         String city = fieldCity.getText();
@@ -169,6 +186,7 @@ public class CreateAddressJPanel extends javax.swing.JPanel {
         
         
         
+        // Validation passed, so copy the entered values into the model.
         address.setPersonName(personName);
         address.setStreet(street);
         address.setCity(city);
@@ -176,8 +194,9 @@ public class CreateAddressJPanel extends javax.swing.JPanel {
         address.setPostalCode(postalCode);
         address.setUnitNumber(unitNumber);
 
-        JOptionPane.showMessageDialog(this, (addressType.equals("home") ? "Home" : "Local") + "Address saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, (addressType.equals("home") ? "Home" : "Local") + " Address saved successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         
+        // Blank the form so the next entry starts clean.
         fieldPersonName.setText("");
         fieldStreet.setText("");
         fieldCity.setText("");
@@ -185,10 +204,23 @@ public class CreateAddressJPanel extends javax.swing.JPanel {
         fieldPostalCode.setText("");
         fieldUnitNumber.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
+    /**
+     * Reports whether a field was left empty or filled with spaces only.
+     *
+     * @param text the raw text from an input field
+     * @return true when there is nothing usable in the field
+     */
     private boolean isBlank(String text){
         return text == null || text.trim().isEmpty();
     }
     
+    /**
+     * Checks one required field and warns the user if it is empty.
+     *
+     * @param value the raw text from the field
+     * @param label the field name to show in the warning
+     * @return true when the field is filled in and saving may continue
+     */
     private boolean require(String value, String label){
         if(isBlank(value)){
             JOptionPane.showMessageDialog(this,label + " is required");
