@@ -54,5 +54,14 @@ public class Customer {
         this.contact = contact;
     }
     
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+    
+    @Override
+    public String toString() {
+        return String.valueOf(customerId);
+    }
+    
     
 }

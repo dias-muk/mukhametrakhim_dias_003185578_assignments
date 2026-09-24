@@ -1,6 +1,8 @@
 package Model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 
 /**
  *
@@ -38,6 +40,9 @@ public class Order {
         this.dateTime = LocalDateTime.now();
     }
     
+    public static final DateTimeFormatter DATE_TIME_FORMAT =
+        DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm").withResolverStyle(ResolverStyle.STRICT);
+
     public double getTotal(){
         return product.getPrice() * quantity;
     }
@@ -112,6 +117,16 @@ public class Order {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+    
+    public String getFormattedDateTime() {
+        return dateTime.format(DATE_TIME_FORMAT);
+    }
+
+    // Shown in the first ("Order ID") column of the order tables.
+    @Override
+    public String toString() {
+        return String.valueOf(orderId);
     }
     
     

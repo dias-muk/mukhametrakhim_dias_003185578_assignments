@@ -76,5 +76,10 @@ public class Product {
         this.prepTime = prepTime;
     }
     
+    @Override
+    public String toString() {
+        return name;
+    }
+    
     
 }
