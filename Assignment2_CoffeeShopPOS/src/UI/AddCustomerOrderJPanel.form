@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="eb" green="f1" red="f5" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,13 +21,439 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnReset" linkSize="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="lblPrep" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAvailable" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="btnPlace" linkSize="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="fieldProdPrepTime" min="-2" pref="125" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCustomerId" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblContact" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="fieldCustomerId" linkSize="3" max="32767" attributes="0"/>
+                                          <Component id="fieldFirstName" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldLastName" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldContact" linkSize="3" alignment="0" pref="125" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblProduct" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblProductId" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCategory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cmbProduct" pref="125" max="32767" attributes="0"/>
+                                          <Component id="fieldProdId" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldProdPrice" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="fieldProdCategory" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnFind" min="-2" pref="56" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblCustomer" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblProductOpted" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="fieldProdNumber" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblOrder" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblOrderId" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblOrderType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDateTime" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPayment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="fieldOrderId" linkSize="3" max="32767" attributes="0"/>
+                                  <Component id="fieldDateTime" linkSize="3" max="32767" attributes="0"/>
+                                  <Component id="cmbType" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="cmbPayment" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="fieldQuantity" linkSize="3" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="cmbStatus" min="-2" pref="125" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="chkBoxPaid" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="133" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOrder" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCustomerId" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldCustomerId" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnFind" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblOrderId" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDateTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldFirstName" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblOrderType" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldLastName" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldContact" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="fieldOrderId" linkSize="4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="fieldDateTime" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblStatus" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbStatus" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fieldQuantity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkBoxPaid" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="lblProductOpted" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblProductId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fieldProdId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAvailable" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fieldProdNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldProdPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPrep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldProdPrepTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fieldProdCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnReset" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPlace" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblTitle">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="American Typewriter" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="New Customer Order"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblContact">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contact"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFirstName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="First Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLastName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Last Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCustomer">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Andale Mono" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Customer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCustomerId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Customer ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOrder">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Andale Mono" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Order"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPlace">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="sansserif" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Place Order"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPlaceActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnReset">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="sansserif" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Reset"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblProductOpted">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Andale Mono" size="16" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Product Opted"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOrderId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Order ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDateTime">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date/Time"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOrderType">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Order Type"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPayment">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Payment"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblStatus">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblQuantity">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quantity"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldCustomerId">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldFirstName">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldLastName">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldContact">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFind">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Find"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldOrderId">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldDateTime">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldQuantity">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbType">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="AddCustomerOrderJPanel_cmbType"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;OrderType&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbPayment">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;PaymentMethod&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbStatus">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;OrderStatus&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkBoxPaid">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Paid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblProduct">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Product"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblProductId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Product ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPrice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Price"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbProduct">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Product&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldProdId">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldProdPrice">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCategory">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Category"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldProdCategory">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAvailable">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Available"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPrep">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prep (min)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldProdNumber">
+    </Component>
+    <Component class="javax.swing.JTextField" name="fieldProdPrepTime">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="yyyy-MM-dd HH:mm"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>
