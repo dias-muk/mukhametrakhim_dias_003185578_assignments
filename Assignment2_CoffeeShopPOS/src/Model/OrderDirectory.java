@@ -87,4 +87,14 @@ public class OrderDirectory {
             }
         }
     }
+    
+    public boolean isProductInUse(Product product) {
+        for (Order o : orderList) {
+            if (o.getProduct().getProductId() == product.getProductId()) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 }

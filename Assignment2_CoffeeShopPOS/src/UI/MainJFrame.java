@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package UI;
 
 import Model.Business;
@@ -73,12 +69,32 @@ public class MainJFrame extends javax.swing.JFrame {
         lblTitle.setText("Сoffe POS");
 
         btnManageProducts.setText("Manage Products");
+        btnManageProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProductsActionPerformed(evt);
+            }
+        });
 
         btnNewOrder.setText("New Customer Order");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewOrderActionPerformed(evt);
+            }
+        });
 
         btnSearchCustomers.setText("Search Customers");
+        btnSearchCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchCustomersActionPerformed(evt);
+            }
+        });
 
         btnListOrders.setText("\tList Orders");
+        btnListOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListOrdersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout navPanelLayout = new javax.swing.GroupLayout(navPanel);
         navPanel.setLayout(navPanelLayout);
@@ -125,6 +141,22 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductsActionPerformed
+        showWorkArea("ManageProductsJPanel", new ManageProductsJPanel(business));
+    }//GEN-LAST:event_btnManageProductsActionPerformed
+
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
+        showWorkArea("AddCustomerOrderJPanel", new AddCustomerOrderJPanel(business));
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+
+    private void btnSearchCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCustomersActionPerformed
+        showWorkArea("SearchCustomersJPanel", new SearchCustomersJPanel(userProcessContainer, business));
+    }//GEN-LAST:event_btnSearchCustomersActionPerformed
+
+    private void btnListOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListOrdersActionPerformed
+        showWorkArea("ListOrdersJPanel", new ListOrdersJPanel(userProcessContainer, business));
+    }//GEN-LAST:event_btnListOrdersActionPerformed
 
     /**
      * @param args the command line arguments
