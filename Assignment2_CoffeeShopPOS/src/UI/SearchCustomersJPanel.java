@@ -1,25 +1,102 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
 import Model.Business;
+import Model.Customer;
+import java.awt.CardLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
+ * Searches customers by ID or by name and deletes customer records.
  *
- * @author dias
+ * <p>The table starts with every customer. Search by name lists all
+ * customers whose name matches, so the three seeded "John Smith" records
+ * all appear. Search by ID goes straight to the customer's profile, because
+ * an ID matches at most one customer.</p>
+ *
+ * @author Dias Mukhametrakhim
  */
 public class SearchCustomersJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Business business;
-    
+    /** The customers listed in the table: everyone, or the last search result. */
+    private ArrayList<Customer> results;
+
+    /**
+     * Builds the panel listing every customer.
+     *
+     * @param userProcessContainer the CardLayout container of MainJFrame
+     * @param business the coffee shop whose customers are searched
+     */
     public SearchCustomersJPanel(JPanel container, Business b) {
         initComponents();
         userProcessContainer = container;
         business = b;
+
+        tblCustomers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tblCustomers.getSelectionModel().addListSelectionListener(e -> updateButtons());
+
+        // Redraw the rows when coming back from the profile, where the
+        // customer may have been edited.
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                populateTable();
+            }
+        });
+
+        showAllCustomers();
+    }
+    
+        private void showAllCustomers() {
+        results = new ArrayList<>(business.getCustomerDirectory().getCustomerList());
+        lblResult.setText("Showing all " + results.size() + " customers");
+        populateTable();
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCustomers.getModel();
+        model.setRowCount(0);
+
+        for (Customer c : results) {
+            Object[] row = new Object[5];
+            row[0] = c;                     // toString() shows the customer ID
+            row[1] = c.getFirstName();
+            row[2] = c.getLastName();
+            row[3] = String.valueOf(c.getContact());
+            row[4] = business.getOrderDirectory().findByCustomer(c).size();
+            model.addRow(row);
+        }
+        updateButtons();
+    }
+
+    private void updateButtons() {
+        boolean rowSelected = tblCustomers.getSelectedRow() >= 0;
+        btnViewProfile.setEnabled(rowSelected);
+        btnDelete.setEnabled(rowSelected);
+    }
+
+    /** Pushes the customer's profile onto the card stack. */
+    private void openProfile(Customer customer) {
+        ViewCustomerJPanel panel = new ViewCustomerJPanel(userProcessContainer, business, customer);
+        userProcessContainer.add("ViewCustomerJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }
+
+    private void showError(String message) {
+        JOptionPane.showMessageDialog(this, message, "Validation Error", JOptionPane.ERROR_MESSAGE);
     }
 
     /**
@@ -31,19 +108,275 @@ public class SearchCustomersJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblCustomerId = new javax.swing.JLabel();
+        btnSearchName = new javax.swing.JButton();
+        btnSearchId = new javax.swing.JButton();
+        fieldSearchId = new javax.swing.JTextField();
+        fieldSearchName = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCustomers = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        btnViewProfile = new javax.swing.JButton();
+        btnShowAll = new javax.swing.JButton();
+        lblResult = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(245, 241, 235));
+
+        lblTitle.setFont(new java.awt.Font("American Typewriter", 1, 24)); // NOI18N
+        lblTitle.setText("Search Customers");
+
+        lblName.setText("Name");
+
+        lblCustomerId.setText("Customer ID");
+
+        btnSearchName.setFont(new java.awt.Font("sansserif", 0, 15)); // NOI18N
+        btnSearchName.setText("Search by Name");
+        btnSearchName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchNameActionPerformed(evt);
+            }
+        });
+
+        btnSearchId.setFont(new java.awt.Font("sansserif", 0, 15)); // NOI18N
+        btnSearchId.setText("Search by ID");
+        btnSearchId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchIdActionPerformed(evt);
+            }
+        });
+
+        fieldSearchName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldSearchNameActionPerformed(evt);
+            }
+        });
+
+        tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Customer ID", "First Name", "Last Name", "Contact", "Orders"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblCustomers.setFillsViewportHeight(true);
+        tblCustomers.setRowHeight(26);
+        jScrollPane1.setViewportView(tblCustomers);
+        if (tblCustomers.getColumnModel().getColumnCount() > 0) {
+            tblCustomers.getColumnModel().getColumn(0).setResizable(false);
+            tblCustomers.getColumnModel().getColumn(1).setResizable(false);
+            tblCustomers.getColumnModel().getColumn(2).setResizable(false);
+            tblCustomers.getColumnModel().getColumn(3).setResizable(false);
+            tblCustomers.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        btnDelete.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnDelete.setText("Delete Customer");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnViewProfile.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnViewProfile.setText("View Profile");
+        btnViewProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewProfileActionPerformed(evt);
+            }
+        });
+
+        btnShowAll.setFont(new java.awt.Font("sansserif", 0, 15)); // NOI18N
+        btnShowAll.setText("Show All");
+        btnShowAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAllActionPerformed(evt);
+            }
+        });
+
+        lblResult.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblResult.setText("Result");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(356, 356, 356)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSearchName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSearchId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnShowAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(371, 371, 371))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblResult)
+                    .addComponent(lblTitle)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btnViewProfile)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnDelete))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(110, 110, 110)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblCustomerId)
+                        .addComponent(lblName))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(fieldSearchId)
+                        .addComponent(fieldSearchName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(656, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearchId)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearchName)
+                    .addComponent(btnShowAll))
+                .addGap(18, 18, 18)
+                .addComponent(lblResult)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewProfile)
+                    .addComponent(btnDelete))
+                .addContainerGap(110, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(81, 81, 81)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCustomerId)
+                        .addComponent(fieldSearchId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblName)
+                        .addComponent(fieldSearchName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(593, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchNameActionPerformed
+        String name = fieldSearchName.getText().trim();
+        if (name.isEmpty()) {
+            showError("Type a first name, last name or full name to search.");
+            return;
+        }
+        // findByName returns ALL matches, e.g. three customers named John Smith.
+        results = business.getCustomerDirectory().findByName(name);
+        if (results.isEmpty()) {
+            lblResult.setText("No customers match \"" + name + "\"");
+        } else {
+            lblResult.setText(results.size() + " customer(s) match \"" + name + "\"");
+        }
+        populateTable();
+    }//GEN-LAST:event_btnSearchNameActionPerformed
+
+    private void btnSearchIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchIdActionPerformed
+        String idText = fieldSearchId.getText().trim();
+        if (!Validator.isPositiveInt(idText)) {
+            showError("Customer ID must be a whole number greater than 0.");
+            return;
+        }
+        Customer found = business.getCustomerDirectory().findById(Integer.parseInt(idText));
+
+        results = new ArrayList<>();
+        if (found == null) {
+            // No match: show an empty table, nothing else to do.
+            lblResult.setText("No customer with ID " + idText);
+            populateTable();
+            return;
+        }
+        results.add(found);
+        lblResult.setText("Customer with ID " + idText + ": " + found.getFullName());
+        populateTable();
+        openProfile(found);
+    }//GEN-LAST:event_btnSearchIdActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        int selectedRow = tblCustomers.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a customer in the table first.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Customer c = (Customer) tblCustomers.getValueAt(selectedRow, 0);
+        int orderCount = business.getOrderDirectory().findByCustomer(c).size();
+
+        String message = "Delete " + c.getFullName() + " (ID " + c.getCustomerId() + ")?";
+        if (orderCount > 0) {
+            message += "\nTheir " + orderCount + " order(s) will be deleted too.";
+        }
+        int answer = JOptionPane.showConfirmDialog(this, message,
+                "Confirm Delete", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (answer == JOptionPane.YES_OPTION) {
+            // Orders first, so that no order is left pointing at a deleted customer.
+            business.getOrderDirectory().deleteOrdersOf(c);
+            business.getCustomerDirectory().deleteCustomer(c);
+            results.remove(c);
+            lblResult.setText(c.getFullName() + " (ID " + c.getCustomerId() + ") was deleted");
+            populateTable();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProfileActionPerformed
+        int selectedRow = tblCustomers.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a customer in the table first.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        openProfile((Customer) tblCustomers.getValueAt(selectedRow, 0));
+    }//GEN-LAST:event_btnViewProfileActionPerformed
+
+    private void fieldSearchNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSearchNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldSearchNameActionPerformed
+
+    private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
+        fieldSearchId.setText("");
+        fieldSearchName.setText("");
+        showAllCustomers();
+    }//GEN-LAST:event_btnShowAllActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearchId;
+    private javax.swing.JButton btnSearchName;
+    private javax.swing.JButton btnShowAll;
+    private javax.swing.JButton btnViewProfile;
+    private javax.swing.JTextField fieldSearchId;
+    private javax.swing.JTextField fieldSearchName;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCustomerId;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblResult;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblCustomers;
     // End of variables declaration//GEN-END:variables
 }
