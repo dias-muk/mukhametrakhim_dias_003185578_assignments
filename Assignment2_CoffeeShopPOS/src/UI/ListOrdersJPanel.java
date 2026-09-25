@@ -1,25 +1,84 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
 import Model.Business;
+import Model.Order;
+import java.awt.CardLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
+ * Lists every order in the OrderDirectory.
  *
- * @author dias
+ * <p>View Details and Delete Order stay disabled until a row is selected.
+ * View Details pushes a {@link ViewOrderJPanel} onto the card stack.</p>
+ *
+ * @author Dias Mukhametrakhim
  */
 public class ListOrdersJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Business business;
+
+    /**
+     * Builds the panel and fills the table with all orders.
+     *
+     * @param userProcessContainer the CardLayout container of MainJFrame
+     * @param business the coffee shop whose orders are listed
+     */
     public ListOrdersJPanel(JPanel container, Business b) {
         initComponents();
-        userProcessContainer = container;
-        business = b;
+        this.userProcessContainer = container;
+        this.business = b;
+
+        tblOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        // View and Delete are only possible once a row is selected.
+        tblOrders.getSelectionModel().addListSelectionListener(e -> updateButtons());
+
+        // Reload the table every time this card is shown again, e.g. after
+        // Back from ViewOrderJPanel, so that edits made there are visible.
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                populateTable();
+            }
+        });
+
+        populateTable();
         
+    }
+    
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblOrders.getModel();
+        model.setRowCount(0);
+
+        for (Order o : business.getOrderDirectory().getOrderList()) {
+            Object[] row = new Object[8];
+            row[0] = o;                     // toString() shows the order ID
+            row[1] = o.getCustomer().getCustomerId();
+            row[2] = o.getCustomer().getFullName();
+            row[3] = o.getProduct();        // toString() shows the product name
+            row[4] = String.format("%.2f", o.getProduct().getPrice());
+            row[5] = o.getQuantity();
+            row[6] = String.format("%.2f", o.getTotal());
+            row[7] = o.getStatus();
+            model.addRow(row);
+        }
+        updateButtons();
+    }
+
+    private void updateButtons() {
+        boolean rowSelected = tblOrders.getSelectedRow() >= 0;
+        btnViewDetails.setEnabled(rowSelected);
+        btnDeleteOrder.setEnabled(rowSelected);
     }
 
     /**
@@ -77,9 +136,19 @@ public class ListOrdersJPanel extends javax.swing.JPanel {
 
         btnViewDetails.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnViewDetails.setText("View Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
 
         btnDeleteOrder.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnDeleteOrder.setText("Delete Order");
+        btnDeleteOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -117,6 +186,39 @@ public class ListOrdersJPanel extends javax.swing.JPanel {
                 .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        int selectedRow = tblOrders.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select an order in the table first.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Order order = (Order) tblOrders.getValueAt(selectedRow, 0);
+
+        ViewOrderJPanel panel = new ViewOrderJPanel(userProcessContainer, business, order);
+        userProcessContainer.add("ViewOrderJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void btnDeleteOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteOrderActionPerformed
+        int selectedRow = tblOrders.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select an order in the table first.",
+                    "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Order order = (Order) tblOrders.getValueAt(selectedRow, 0);
+
+        int answer = JOptionPane.showConfirmDialog(this,
+                "Delete order #" + order.getOrderId() + " of " + order.getCustomer().getFullName() + "?",
+                "Confirm Delete", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (answer == JOptionPane.YES_OPTION) {
+            business.getOrderDirectory().deleteOrder(order);
+            populateTable();
+        }
+    }//GEN-LAST:event_btnDeleteOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
