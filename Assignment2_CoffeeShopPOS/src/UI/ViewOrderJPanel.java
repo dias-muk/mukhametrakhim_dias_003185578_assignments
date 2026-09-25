@@ -140,7 +140,7 @@ public class ViewOrderJPanel extends javax.swing.JPanel {
             return false;
         }
         OrderStatus newStatus = (OrderStatus) cmbStatus.getSelectedItem();
-        if (newStatus == OrderStatus.COMPLETED && !chkPaid.isSelected()) {
+        if (newStatus == OrderStatus.COMPLETED && !chkBoxPaid.isSelected()) {
             showError("A completed order must be marked as paid.");
             return false;
         }
