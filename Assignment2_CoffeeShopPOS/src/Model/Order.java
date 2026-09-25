@@ -1,3 +1,8 @@
+/*
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
+ */
 package Model;
 
 import java.time.LocalDateTime;
@@ -5,8 +10,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 
 /**
+ * One order: a single customer, a single product and a quantity.
  *
- * @author dias
+ * @author Dias Mukhametrakhim
  */
 public class Order {
     private int orderId;

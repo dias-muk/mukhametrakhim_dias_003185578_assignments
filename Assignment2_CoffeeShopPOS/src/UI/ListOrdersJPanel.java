@@ -34,10 +34,10 @@ public class ListOrdersJPanel extends javax.swing.JPanel {
      * @param userProcessContainer the CardLayout container of MainJFrame
      * @param business the coffee shop whose orders are listed
      */
-    public ListOrdersJPanel(JPanel container, Business b) {
+    public ListOrdersJPanel(JPanel userProcessContainer, Business business) {
         initComponents();
-        this.userProcessContainer = container;
-        this.business = b;
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
 
         tblOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         // View and Delete are only possible once a row is selected.

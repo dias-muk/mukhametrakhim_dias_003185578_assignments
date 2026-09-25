@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package UI;
 
@@ -13,8 +14,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Lets the manager add, update and delete the products in the catalog.
  *
- * @author dias
+ * @author Dias Mukhametrakhim
  */
 public class ManageProductsJPanel extends javax.swing.JPanel {
 
@@ -27,9 +29,9 @@ public class ManageProductsJPanel extends javax.swing.JPanel {
      * @param business the coffee shop whose products are managed here
      */
     
-    public ManageProductsJPanel(Business b) {
+    public ManageProductsJPanel(Business business) {
         initComponents();
-        business = b;
+        this.business = business;
         this.catalog = business.getProductCatalog();
         
         cmbCategory.setModel(new DefaultComboBoxModel<>(new String[] {

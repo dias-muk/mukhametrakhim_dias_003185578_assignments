@@ -1,8 +1,14 @@
+/*
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
+ */
 package Model;
 
 /**
+ * One item the coffee shop sells, held in the ProductCatalog.
  *
- * @author dias
+ * @author Dias Mukhametrakhim
  */
 public class Product {
     private int productId;

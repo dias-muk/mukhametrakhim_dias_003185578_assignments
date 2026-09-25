@@ -1,3 +1,8 @@
+/*
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
+ */
 package Model;
 
 import java.util.ArrayList;
@@ -43,8 +48,9 @@ public class CustomerDirectory {
         ArrayList<Customer> matches = new ArrayList<>();
         String q = query.trim().toLowerCase();
         for (Customer c : customerList) {
-            if (c.getFirstName().toLowerCase().contains(q)
-             || c.getLastName().toLowerCase().contains(q)) {
+            // Matching on "first last" finds "John", "Smith" and "John Smith".
+            String fullName = (c.getFirstName() + " " + c.getLastName()).toLowerCase();
+            if (fullName.contains(q)) {
                 matches.add(c);
             }
         }

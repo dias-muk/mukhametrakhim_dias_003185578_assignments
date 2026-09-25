@@ -39,10 +39,10 @@ public class SearchCustomersJPanel extends javax.swing.JPanel {
      * @param userProcessContainer the CardLayout container of MainJFrame
      * @param business the coffee shop whose customers are searched
      */
-    public SearchCustomersJPanel(JPanel container, Business b) {
+    public SearchCustomersJPanel(JPanel userProcessContainer, Business business) {
         initComponents();
-        userProcessContainer = container;
-        business = b;
+        this.userProcessContainer = userProcessContainer;
+        this.business = business;
 
         tblCustomers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tblCustomers.getSelectionModel().addListSelectionListener(e -> updateButtons());
@@ -354,7 +354,8 @@ public class SearchCustomersJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnViewProfileActionPerformed
 
     private void fieldSearchNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSearchNameActionPerformed
-        // TODO add your handling code here:
+        // Pressing Enter in the name field runs the same search as the button.
+        btnSearchNameActionPerformed(evt);
     }//GEN-LAST:event_fieldSearchNameActionPerformed
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed

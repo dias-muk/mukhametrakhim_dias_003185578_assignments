@@ -1,3 +1,8 @@
+/*
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 2 - Coffee Shop POS
+ * Dias Mukhametrakhim, NUID 003185578
+ */
 package UI;
 
 import Model.Business;
@@ -6,8 +11,9 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
+ * The main window: navigation on the left, a CardLayout work area on the right.
  *
- * @author dias
+ * @author Dias Mukhametrakhim
  */
 public class MainJFrame extends javax.swing.JFrame {
 
