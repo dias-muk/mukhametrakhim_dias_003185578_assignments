@@ -72,19 +72,20 @@ public class AdminUserAccount extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-
-        CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+      // Saving is not built yet, so for now Update just returns to the list
+        btnBackActionPerformed(evt);
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-         CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-
-
+        CardSequencePanel.remove(this);
+        // The accounts list is on top again: reload it so it shows any changes made here
+        java.awt.Component[] stack = CardSequencePanel.getComponents();
+        java.awt.Component below = stack[stack.length - 1];
+        if (below instanceof ManageUserAccountsJPanel) {
+            ((ManageUserAccountsJPanel) below).refreshTable();
+        }
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
