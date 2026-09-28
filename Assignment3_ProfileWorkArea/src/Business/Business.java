@@ -57,11 +57,4 @@ public class Business {
     public FacultyDirectory getFacultyDirectory(){
         return facultydirectory;
     }
-    
-    public Profile findProfile(String id){
-        
-    }
-    
-    public UserAccount(String name, )
-
 }
