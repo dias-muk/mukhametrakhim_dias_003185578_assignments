@@ -46,7 +46,7 @@ public class FacultyDirectory {
     }
     
     public void removeFaculty(FacultyProfile faculty){
-        
+        facultyList.remove(faculty);
     }
     
 }

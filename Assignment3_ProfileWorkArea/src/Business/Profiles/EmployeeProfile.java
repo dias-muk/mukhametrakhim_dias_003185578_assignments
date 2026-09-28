@@ -13,16 +13,31 @@ import Business.Person.Person;
  */
 public class EmployeeProfile extends Profile {
 
-
+    private String department = "";
+    private String title = "";
 
     public EmployeeProfile(Person p) {
-
-        super(p); 
-
+        super(p);
     }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
-    public String getRole(){
-        return  "Admin";
+    public String getRole() {
+        return "Admin";
     }
-
 }

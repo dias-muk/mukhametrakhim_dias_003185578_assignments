@@ -1,35 +1,36 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
 package Business.Profiles;
 
 import Business.Person.Person;
 
 /**
+ * The student role of a person. The Person itself is kept in Profile, so this
+ * class must not declare its own person field.
  *
- * @author kal bugrara
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class StudentProfile extends Profile {
 
-//    Transcript transcript;
-    //   EmploymentHistroy employmenthistory;
+    private String program = "";
 
     public StudentProfile(Person p) {
         super(p);
+    }
 
-//        transcript = new Transcript(this);
-//        employmenthistory = new EmploymentHistroy();
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
     }
 
     @Override
     public String getRole() {
         return "Student";
     }
-
-    public boolean isMatch(String id) {
-        return person.getPersonId().equals(id);
-    }
-
 }

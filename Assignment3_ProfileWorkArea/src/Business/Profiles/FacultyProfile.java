@@ -11,8 +11,8 @@ import Business.Person.Person;
  * @author dias
  */
 public class FacultyProfile extends Profile {
-    private String department;
-    private String title;
+    private String department = "";
+    private String title = "";
     
     
     public FacultyProfile(Person p) {
@@ -34,7 +34,6 @@ public class FacultyProfile extends Profile {
     public void setTitle(String title) {
         this.title = title;
     }
-    
     
     @Override
     public String getRole() {
