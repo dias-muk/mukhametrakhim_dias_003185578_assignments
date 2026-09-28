@@ -11,7 +11,8 @@
 package UserInterface.WorkAreas.FacultyRole;
 
 import Business.Business;
-import UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp.ManagePersonsJPanel;
+import Business.UserAccounts.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -22,16 +23,19 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
 
     javax.swing.JPanel CardSequencePanel;
     Business business;
+    UserAccount useraccount;    // the faculty member who is logged in
 
     /**
      * Creates new form UnitRiskWorkArea
      */
 
-    public FacultyWorkAreaJPanel(Business b, JPanel clp) {
+    public FacultyWorkAreaJPanel(Business b, UserAccount ua, JPanel clp) {
 
         business = b;
+        useraccount = ua;
         this.CardSequencePanel = clp;
         initComponents();
+        lblTitle.setText("Faculty Work Area - Welcome, " + ua.getAssociatedPersonProfile().getPerson().getName());
 
     }
 
@@ -108,8 +112,8 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblTitle.setText("My Faculty Profie");
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblTitle.setText("Faculty Work Area - Welcome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -127,8 +131,8 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnMyProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnPerformanceReports, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,42 +147,43 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMyProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPerformanceReports, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageCoursesIdentifyResourceAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCoursesIdentifyResourceAssetsActionPerformed
-        // TODO add your handling code here:
-        CardSequencePanel.removeAll();
-
-        ManagePersonsJPanel aos = new ManagePersonsJPanel(business, CardSequencePanel);
-
-        CardSequencePanel.add("Manage Persons", aos);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        notInThisAssignment("Manage Courses");
+//        CardSequencePanel.removeAll();
+//
+//        ManagePersonsJPanel aos = new ManagePersonsJPanel(business, CardSequencePanel);
+//
+//        CardSequencePanel.add("Manage Persons", aos);
+//        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
     }//GEN-LAST:event_btnManageCoursesIdentifyResourceAssetsActionPerformed
 
     private void btnManageStudentsProfilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageStudentsProfilesActionPerformed
-        // TODO add your handling code here:
-
-  
+        notInThisAssignment("Manage Students Profiles");  
     }//GEN-LAST:event_btnManageStudentsProfilesActionPerformed
 
     private void btnMyProfileIdentifyEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyProfileIdentifyEventsActionPerformed
-        // TODO add your handling code here:
-        CardSequencePanel.removeAll();
+        JOptionPane.showMessageDialog(this, "My Profile is coming soon.", "Coming soon", JOptionPane.INFORMATION_MESSAGE);
+//        CardSequencePanel.removeAll();
         //    IdentifyEventTypes iet= new IdentifyEventTypes(businessunit, CardSequencePanel);
 
         //    CardSequencePanel.add("IdentifyEventTypes", iet);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+//        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         //((java.awt.CardLayout)CardSequencePanel.getLayout()).show(CardSequencePanel, "IdentifyEventTypes");
 }//GEN-LAST:event_btnMyProfileIdentifyEventsActionPerformed
 
     private void btnPerformanceReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerformanceReportsActionPerformed
-        // TODO add your handling code here:
-
+        notInThisAssignment("Performance Reports");
 }//GEN-LAST:event_btnPerformanceReportsActionPerformed
-
+    /** For buttons whose screens are not part of Assignment 3. */
+    private void notInThisAssignment(String feature) {
+        JOptionPane.showMessageDialog(this, "\"" + feature + "\" is not part of Assignment 3.",
+                "Coming soon", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageCourses;

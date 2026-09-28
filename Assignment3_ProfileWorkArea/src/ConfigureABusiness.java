@@ -10,6 +10,8 @@ import Business.Person.Person;
 import Business.Person.PersonDirectory;
 import Business.Profiles.EmployeeDirectory;
 import Business.Profiles.EmployeeProfile;
+import Business.Profiles.FacultyDirectory;
+import Business.Profiles.FacultyProfile;
 import Business.Profiles.StudentDirectory;
 import Business.Profiles.StudentProfile;
 import Business.UserAccounts.UserAccountDirectory;
@@ -30,6 +32,10 @@ class ConfigureABusiness {
         Person john = persondirectory.newPerson("001000001", "John Smith");
         john.setEmail("j.smith@northeastern.edu");
         john.setPhone("617-555-0101");
+        
+        Person gina = persondirectory.newPerson("001000002", "Gina Montana");
+        gina.setEmail("g.montana@northeastern.edu");
+        gina.setPhone("617-555-0102");
 
         Person adam = persondirectory.newPerson("002000001", "Adam Rollen");
         adam.setEmail("rollen.a@northeastern.edu");
@@ -40,6 +46,12 @@ class ConfigureABusiness {
         EmployeeProfile johnAdmin = employeedirectory.newEmployeeProfile(john);
         johnAdmin.setDepartment("IT Services");
         johnAdmin.setTitle("System Administrator");
+        
+// Create a faculty member
+        FacultyDirectory facultydirectory = business.getFacultyDirectory();
+        FacultyProfile ginaFaculty = facultydirectory.newFacultyProfile(gina);
+        ginaFaculty.setDepartment("Information Systems");
+        ginaFaculty.setTitle("Associate Professor");
 
 // Create a student
         StudentDirectory studentdirectory = business.getStudentDirectory();

@@ -12,6 +12,8 @@ package UserInterface.WorkAreas.StudentRole;
 
 import Business.Business;
 import Business.Profiles.StudentProfile;
+import Business.UserAccounts.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -22,6 +24,7 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
 
     javax.swing.JPanel CardSequencePanel;
     Business business;
+    UserAccount useraccount; 
     StudentProfile student;
 
     /**
@@ -31,13 +34,13 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
      * @param clp
      */
 
-    public StudentWorkAreaJPanel(Business b, StudentProfile spp, JPanel clp) {
-
+    public StudentWorkAreaJPanel(Business b, UserAccount ua, JPanel clp) {
         business = b;
+        useraccount = ua;
+        student = (StudentProfile) ua.getAssociatedPersonProfile();
         this.CardSequencePanel = clp;
-        student = spp;
         initComponents();
-
+        lblTitle.setText("Student Work Area - Welcome, " + student.getPerson().getName());
     }
 
     /**
@@ -170,33 +173,30 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCourseWorkIdentifyResourceAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCourseWorkIdentifyResourceAssetsActionPerformed
-        
-
+        notInThisAssignment("Course Work");
     }//GEN-LAST:event_btnCourseWorkIdentifyResourceAssetsActionPerformed
 
     private void btnManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProfileActionPerformed
-        // TODO add your handling code here:
-
-
-
+        JOptionPane.showMessageDialog(this, "My Profile is coming soon.", "Coming soon", JOptionPane.INFORMATION_MESSAGE);
 }//GEN-LAST:event_btnManageProfileActionPerformed
 
     private void btnAuditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAuditActionPerformed
-        // TODO add your handling code here:
-
-
+        notInThisAssignment("Graduation Audit");
     }//GEN-LAST:event_btnAuditActionPerformed
 
     private void btnRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrationActionPerformed
-        // TODO add your handling code here:
-
-        CardSequencePanel.removeAll();
+        notInThisAssignment("Registration");
 }//GEN-LAST:event_btnRegistrationActionPerformed
 
     private void btnTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranscriptActionPerformed
-        // TODO add your handling code here:
+        notInThisAssignment("Transcript");
     }//GEN-LAST:event_btnTranscriptActionPerformed
-
+    
+    /** For buttons whose screens are not part of Assignment 3. */
+    private void notInThisAssignment(String feature) {
+        JOptionPane.showMessageDialog(this, "\"" + feature + "\" is not part of Assignment 3.",
+                "Coming soon", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAudit;
