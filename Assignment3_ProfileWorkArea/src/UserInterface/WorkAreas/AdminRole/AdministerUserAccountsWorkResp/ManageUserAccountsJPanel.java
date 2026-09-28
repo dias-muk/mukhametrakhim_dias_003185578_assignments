@@ -7,7 +7,6 @@ package UserInterface.WorkAreas.AdminRole.AdministerUserAccountsWorkResp;
 
 import Business.Business;
 import Business.UserAccounts.UserAccount;
-import Business.UserAccounts.UserAccountDirectory;
 
 
 import javax.swing.JPanel;
@@ -36,31 +35,19 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
     }
 
     public void refreshTable() {
+        DefaultTableModel model = (DefaultTableModel) tblUserAccount.getModel();
+        model.setRowCount(0);
 
-//clear supplier table
-        int rc = tblUserAccount.getRowCount();
-        int i;
-        for (i = rc - 1; i >= 0; i--) {
-            ((DefaultTableModel) tblUserAccount.getModel()).removeRow(i);
+        for (UserAccount ua : business.getUserAccountDirectory().getUserAccountList()) {
+            Object[] row = new Object[6];
+            row[0] = ua;        // toString() shows the username; the object is read back on selection
+            row[1] = ua.getAssociatedPersonProfile().getPerson().getName();
+            row[2] = ua.getRole();
+            row[3] = ua.getStatus();
+            row[4] = ua.getLastAccessedText();
+            row[5] = ua.getLastUpdatedText();
+            model.addRow(row);
         }
-
-
-
-        UserAccountDirectory uad = business.getUserAccountDirectory();
-
-       
-
-        for (UserAccount ua : uad.getUserAccountList()) {
-
-            Object[] row = new Object[5];
-            row[0] = ua;
- //           row[1] = ua.getStatus(); //complete this..
- //           row[2] = ua.getLastUpdated()
- //           row[3] = 
-
-            ((DefaultTableModel) tblUserAccount.getModel()).addRow(row);
-        }
-
     }
 
     
@@ -90,7 +77,7 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(30, 300, 80, 23);
+        btnBack.setBounds(30, 420, 80, 23);
 
         btnNext.setText("Next >>");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -99,12 +86,12 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(500, 300, 80, 23);
+        btnNext.setBounds(500, 420, 80, 23);
 
         lblUserAccounts.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblUserAccounts.setText("User Accounts");
         add(lblUserAccounts);
-        lblUserAccounts.setBounds(30, 90, 190, 17);
+        lblUserAccounts.setBounds(30, 100, 190, 17);
 
         lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lblTitle.setText("Manage User Accounts");
@@ -113,24 +100,40 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
 
         tblUserAccount.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "User Name", "Status", "Last Activity", "Last Updated"
+                "Username", "Name", "Role", "Status", "Last Activity", "Last Updated"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblUserAccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tblUserAccountMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(tblUserAccount);
+        if (tblUserAccount.getColumnModel().getColumnCount() > 0) {
+            tblUserAccount.getColumnModel().getColumn(0).setResizable(false);
+            tblUserAccount.getColumnModel().getColumn(1).setResizable(false);
+            tblUserAccount.getColumnModel().getColumn(2).setResizable(false);
+            tblUserAccount.getColumnModel().getColumn(3).setResizable(false);
+            tblUserAccount.getColumnModel().getColumn(4).setResizable(false);
+            tblUserAccount.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(30, 110, 550, 130);
+        jScrollPane1.setBounds(30, 140, 550, 240);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

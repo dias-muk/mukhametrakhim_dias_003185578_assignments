@@ -167,6 +167,15 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
             fieldPassword.requestFocus();
             return;
         }
+        
+        if (!useraccount.isActive()) {
+            JOptionPane.showMessageDialog(this, "This account is disabled. Please contact the administrator.",
+                    "Login failed", JOptionPane.ERROR_MESSAGE);
+            fieldPassword.setText("");
+            return;
+        }
+            
+        useraccount.recordLogin();
 
         // The type of the profile decides which work area opens
         Profile profile = useraccount.getAssociatedPersonProfile();
