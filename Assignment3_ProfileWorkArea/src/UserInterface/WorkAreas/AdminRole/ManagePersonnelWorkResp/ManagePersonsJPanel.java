@@ -6,13 +6,19 @@
 package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
 
 import Business.Business;
+import Business.Profiles.EmployeeProfile;
+import Business.UserAccounts.UserAccount;
+import javax.swing.JOptionPane;
 
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
+ * Lists every employee (admin). From here the admin registers a new employee
+ * or opens one to update or delete them.
  *
- * @author kal bugrara
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class ManagePersonsJPanel extends javax.swing.JPanel {
 
@@ -21,13 +27,32 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
      */
     JPanel CardSequencePanel;
     Business business;
+    UserAccount currentUser;    // the admin who is logged in
 
 
-    public ManagePersonsJPanel(Business bz, JPanel jp) {
+    public ManagePersonsJPanel(Business bz, UserAccount current, JPanel jp) {
         CardSequencePanel = jp;
         this.business = bz;
+        currentUser = current;
         initComponents();
+        refreshTable();
+    }
+    
+    public void refreshTable() {
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        model.setRowCount(0);
 
+        for (EmployeeProfile ep : business.getEmployeeDirectory().getEmployeeList()) {
+            UserAccount ua = business.getUserAccountDirectory().findByProfile(ep);
+            Object[] row = new Object[6];
+            row[0] = ep.getPerson().getPersonId();     // the NUID finds the employee again on selection
+            row[1] = ep.getPerson().getName();
+            row[2] = ep.getDepartment();
+            row[3] = ep.getTitle();
+            row[4] = ep.getPerson().getEmail();
+            row[5] = ua == null ? "No account" : ua.getUserLoginName();
+            model.addRow(row);
+        }
     }
 
 
@@ -41,9 +66,11 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        lblName = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblEmployees = new javax.swing.JTable();
+        btnRegister = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -55,25 +82,58 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(20, 260, 80, 23);
+        btnBack.setBounds(10, 440, 80, 23);
 
-        btnNext.setText("Next >>");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("View / Update >>");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        add(btnNext);
-        btnNext.setBounds(500, 260, 80, 23);
-
-        lblName.setText("Name");
-        add(lblName);
-        lblName.setBounds(20, 60, 190, 17);
+        add(btnUpdate);
+        btnUpdate.setBounds(470, 440, 150, 23);
 
         lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lblTitle.setText("Manage Personnel (HR)");
         add(lblTitle);
         lblTitle.setBounds(21, 20, 550, 28);
+
+        tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "NUID", "Name", "Department", "Title", "Email", "Username"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblEmployees.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(tblEmployees);
+        if (tblEmployees.getColumnModel().getColumnCount() > 0) {
+            tblEmployees.getColumnModel().getColumn(0).setResizable(false);
+            tblEmployees.getColumnModel().getColumn(2).setResizable(false);
+            tblEmployees.getColumnModel().getColumn(3).setResizable(false);
+            tblEmployees.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(20, 120, 590, 270);
+
+        btnRegister.setText("Register Employee");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
+        add(btnRegister);
+        btnRegister.setBounds(260, 440, 150, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -81,21 +141,34 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-        
-        AdministerPersonJPanel mppd = new AdministerPersonJPanel(business, CardSequencePanel);
-        CardSequencePanel.add(mppd);
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int row = tblEmployees.getSelectedRow();
+        if (row < 0) {
+            JOptionPane.showMessageDialog(this, "Please select an employee first.",
+                    "No employee selected", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        String nuid = (String) tblEmployees.getValueAt(row, 0);
+        EmployeeProfile employee = business.getEmployeeDirectory().findEmployee(nuid);
+        AdministerPersonJPanel detail = new AdministerPersonJPanel(business, employee, currentUser, CardSequencePanel);
+        CardSequencePanel.add("EmployeeDetail", detail);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    }//GEN-LAST:event_btnNextActionPerformed
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        AdministerPersonJPanel detail = new AdministerPersonJPanel(business, null, currentUser, CardSequencePanel);
+        CardSequencePanel.add("EmployeeDetail", detail);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JLabel lblName;
+    private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblEmployees;
     // End of variables declaration//GEN-END:variables
 
 }

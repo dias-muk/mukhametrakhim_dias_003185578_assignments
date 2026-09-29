@@ -5,11 +5,16 @@
  */
 package Business;
 
+import Business.Person.Person;
 import Business.Person.PersonDirectory;
 import Business.Profiles.EmployeeDirectory;
+import Business.Profiles.EmployeeProfile;
 import Business.Profiles.FacultyDirectory;
+import Business.Profiles.FacultyProfile;
 import Business.Profiles.Profile;
 import Business.Profiles.StudentDirectory;
+import Business.Profiles.StudentProfile;
+import Business.UserAccounts.UserAccount;
 import Business.UserAccounts.UserAccountDirectory;
 
 /**
@@ -71,5 +76,27 @@ public class Business {
             profile = studentdirectory.findStudent(nuid);
         }
         return profile;
+    }
+    
+        /**
+     * Deletes a profile together with its user account. The person is removed
+     * too when no other profile uses their NUID.
+     */
+    public void deleteProfile(Profile profile) {
+        UserAccount account = useraccountdirectory.findByProfile(profile);
+        if (account != null) {
+            useraccountdirectory.removeUserAccount(account);
+        }
+        if (profile instanceof EmployeeProfile) {
+            employeedirectory.removeEmployee((EmployeeProfile) profile);
+        } else if (profile instanceof FacultyProfile) {
+            facultydirectory.removeFaculty((FacultyProfile) profile);
+        } else if (profile instanceof StudentProfile) {
+            studentdirectory.removeStudent((StudentProfile) profile);
+        }
+        Person person = profile.getPerson();
+        if (findProfile(person.getPersonId()) == null) {
+            persondirectory.removePerson(person);
+        }
     }
 }
