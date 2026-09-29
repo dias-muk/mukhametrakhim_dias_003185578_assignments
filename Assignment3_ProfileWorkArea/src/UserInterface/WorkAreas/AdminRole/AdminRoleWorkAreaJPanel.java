@@ -174,13 +174,9 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminUserAccountsIdentifyResourceAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUserAccountsIdentifyResourceAssetsActionPerformed
-        // TODO add your handling code here:
-
-        ManageUserAccountsJPanel aos = new ManageUserAccountsJPanel(business, CardSequencePanel);
-
-        CardSequencePanel.add("ManageVulns", aos);
+        ManageUserAccountsJPanel aos = new ManageUserAccountsJPanel(business, useraccount, CardSequencePanel);
+        CardSequencePanel.add("ManageAccounts", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-
     }//GEN-LAST:event_btnAdminUserAccountsIdentifyResourceAssetsActionPerformed
 
     private void btnRegisterPersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterPersonsActionPerformed
