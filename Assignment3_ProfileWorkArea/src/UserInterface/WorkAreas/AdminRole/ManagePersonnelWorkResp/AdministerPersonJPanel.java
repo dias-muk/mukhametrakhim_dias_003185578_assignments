@@ -261,7 +261,7 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSave);
-        btnSave.setBounds(260, 360, 72, 23);
+        btnSave.setBounds(260, 360, 160, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

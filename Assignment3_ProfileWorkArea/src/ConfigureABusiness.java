@@ -40,6 +40,10 @@ class ConfigureABusiness {
         Person adam = persondirectory.newPerson("002000001", "Adam Rollen");
         adam.setEmail("rollen.a@northeastern.edu");
         adam.setPhone("617-555-0103");
+        
+        Person laura = persondirectory.newPerson("002000002", "Laura Brown");
+        laura.setEmail("brown.l@northeastern.edu");
+        laura.setPhone("617-555-0104");
 
 // Create the admin who manages the business (admins are employees)
         EmployeeDirectory employeedirectory = business.getEmployeeDirectory();
@@ -57,6 +61,10 @@ class ConfigureABusiness {
         StudentDirectory studentdirectory = business.getStudentDirectory();
         StudentProfile adamStudent = studentdirectory.newStudentProfile(adam);
         adamStudent.setProgram("MS Information Systems");
+        
+        
+        StudentProfile lauraStudent = studentdirectory.newStudentProfile(laura);
+        lauraStudent.setProgram("MS Data Analytics");     // no account: Laura signs up herself
 
 // Create user accounts that link to specific profiles
         UserAccountDirectory uadirectory = business.getUserAccountDirectory();

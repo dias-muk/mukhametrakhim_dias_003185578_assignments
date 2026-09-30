@@ -91,7 +91,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(470, 440, 150, 23);
+        btnUpdate.setBounds(430, 440, 230, 23);
 
         lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lblTitle.setText("Manage Personnel (HR)");
@@ -133,7 +133,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnRegister);
-        btnRegister.setBounds(260, 440, 150, 23);
+        btnRegister.setBounds(190, 440, 150, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

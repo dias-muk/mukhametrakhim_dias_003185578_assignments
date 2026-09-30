@@ -32,6 +32,7 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
     public ManageUserAccountsJPanel(Business bz, UserAccount current, JPanel jp) {
         CardSequencePanel = jp;
         this.business = bz;
+        currentUser = current;
         initComponents();
         refreshTable();
 
