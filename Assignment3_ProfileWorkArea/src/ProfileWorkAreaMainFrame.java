@@ -10,6 +10,7 @@ import Business.Profiles.FacultyProfile;
 import Business.Profiles.Profile;
 import Business.Profiles.StudentProfile;
 import Business.UserAccounts.UserAccount;
+import UserInterface.SignUp.SignUpJPanel;
 import UserInterface.Validator.Validator;
 import UserInterface.WorkAreas.AdminRole.AdminRoleWorkAreaJPanel;
 import UserInterface.WorkAreas.FacultyRole.FacultyWorkAreaJPanel;
@@ -61,6 +62,7 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
         fieldPassword = new javax.swing.JPasswordField();
         lblLoggedInAs = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
+        btnSignUp = new javax.swing.JButton();
         CardSequencePanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
 
@@ -104,6 +106,16 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSignUp.setBackground(new java.awt.Color(0, 128, 0));
+        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignUp.setText("Sign Up");
+        btnSignUp.setBorderPainted(false);
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpLoginButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout actionsidejpanelLayout = new javax.swing.GroupLayout(actionsidejpanel);
         actionsidejpanel.setLayout(actionsidejpanelLayout);
         actionsidejpanelLayout.setHorizontalGroup(
@@ -120,8 +132,9 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
                     .addGroup(actionsidejpanelLayout.createSequentialGroup()
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLogout)))
-                .addGap(30, 30, 30))
+                        .addComponent(btnLogout))
+                    .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         actionsidejpanelLayout.setVerticalGroup(
             actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +153,9 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(lblLoggedInAs)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addGap(314, 314, 314))
         );
 
         SplitHomeArea.setLeftComponent(actionsidejpanel);
@@ -220,6 +235,13 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "You have been logged out.",
                 "Logged out", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnSignUpLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpLoginButtonActionPerformed
+        CardSequencePanel.removeAll();
+        CardSequencePanel.add("welcome", lblWelcome);
+        CardSequencePanel.add("signup", new SignUpJPanel(business, CardSequencePanel));
+        ((CardLayout) CardSequencePanel.getLayout()).show(CardSequencePanel, "signup");
+    }//GEN-LAST:event_btnSignUpLoginButtonActionPerformed
     
     /**
      * Switches the left panel between the login form and the logged-in view.
@@ -232,6 +254,7 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
         lblPassword.setVisible(!loggedIn);
         fieldPassword.setVisible(!loggedIn);
         btnLogin.setVisible(!loggedIn);
+        btnSignUp.setVisible(!loggedIn);
         lblLoggedInAs.setVisible(loggedIn);
         btnLogout.setVisible(loggedIn);
         fieldPassword.setText("");
@@ -288,6 +311,7 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel actionsidejpanel;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnSignUp;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUsername;
     private javax.swing.JLabel lblLoggedInAs;

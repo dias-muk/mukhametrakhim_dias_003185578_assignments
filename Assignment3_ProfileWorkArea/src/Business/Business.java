@@ -99,4 +99,38 @@ public class Business {
             persondirectory.removePerson(person);
         }
     }
+    
+        /**
+     * Creates a student account from the Sign Up page. Sign-up only ever makes
+     * students: if the admin already added this NUID as a student without a
+     * login, the new account is linked to that record (the name must match);
+     * an NUID nobody has registered becomes a new student. Throws
+     * IllegalArgumentException with a message for the user when the account
+     * cannot be created.
+     */
+    public UserAccount signUpStudent(String name, String nuid, String username, String password) {
+        if (useraccountdirectory.findByUsername(username) != null) {
+            throw new IllegalArgumentException("The username \"" + username + "\" is already taken.");
+        }
+        StudentProfile student;
+        Person person = persondirectory.findPerson(nuid);
+        if (person == null) {
+            person = persondirectory.newPerson(nuid, name);
+            student = studentdirectory.newStudentProfile(person);
+        } else {
+            student = studentdirectory.findStudent(nuid);
+            if (student == null) {
+                throw new IllegalArgumentException("NUID " + nuid + " belongs to a staff member. "
+                        + "Staff accounts are created by the administrator.");
+            }
+            if (useraccountdirectory.findByProfile(student) != null) {
+                throw new IllegalArgumentException("NUID " + nuid + " already has an account. Please log in.");
+            }
+            if (!person.getName().trim().equalsIgnoreCase(name.trim())) {
+                throw new IllegalArgumentException("NUID " + nuid + " is registered under a different name. "
+                        + "Enter your name as the admin registered it, or contact the administrator.");
+            }
+        }
+        return useraccountdirectory.newUserAccount(student, username, password);
+    }
 }
