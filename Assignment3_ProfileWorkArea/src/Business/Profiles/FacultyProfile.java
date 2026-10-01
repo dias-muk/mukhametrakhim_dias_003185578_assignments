@@ -1,14 +1,18 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package Business.Profiles;
 
 import Business.Person.Person;
 
 /**
+ * The faculty role: a person who teaches, with a department and an academic
+ * title. Faculty logins are created by the admin; sign-up never makes faculty.
  *
- * @author dias
+ * @author Dias Mukhametrakhim
  */
 public class FacultyProfile extends Profile {
     private String department = "";

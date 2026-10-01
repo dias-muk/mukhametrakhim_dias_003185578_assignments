@@ -21,10 +21,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblTitle" min="-2" pref="183" max="-2" attributes="0"/>
+                  <Component id="btnBack" min="-2" pref="175" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblNUID" min="-2" max="-2" attributes="0"/>
@@ -47,29 +47,20 @@
                           <Component id="fieldExtra2" alignment="0" max="32767" attributes="0"/>
                           <Component id="fieldUsername" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblLastLogin" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="fieldLastLogin" min="-2" pref="145" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblAccountUpdated" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="fieldLastUpdated" min="-2" pref="145" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblAccountUpdated" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLastLogin" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="fieldLastLogin" min="-2" pref="172" max="-2" attributes="0"/>
+                          <Component id="fieldLastUpdated" min="-2" pref="171" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="lblTitle" alignment="0" min="-2" pref="522" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="208" max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-                  <Component id="btnBack" min="-2" pref="175" max="-2" attributes="0"/>
-                  <EmptySpace pref="427" max="32767" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -122,14 +113,9 @@
                   <Component id="fieldUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblExtra3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="404" max="-2" attributes="0"/>
-                  <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="55" max="32767" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

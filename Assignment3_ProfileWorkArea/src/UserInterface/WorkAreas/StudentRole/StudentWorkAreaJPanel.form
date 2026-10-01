@@ -26,22 +26,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btnTranscript" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="btnCourseWork" alignment="0" pref="206" max="32767" attributes="0"/>
+                  <Component id="btnMyProfile" alignment="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblTitle" min="-2" pref="282" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnTranscript" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="btnCourseWork" alignment="0" pref="206" max="32767" attributes="0"/>
-                          <Component id="btnMyProfile" alignment="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnRegistration" min="-2" pref="164" max="-2" attributes="0"/>
-                          <Component id="btnAudit" min="-2" pref="164" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="btnRegistration" min="-2" pref="164" max="-2" attributes="0"/>
+                  <Component id="btnAudit" min="-2" pref="164" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="61" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblTitle" min="-2" pref="523" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

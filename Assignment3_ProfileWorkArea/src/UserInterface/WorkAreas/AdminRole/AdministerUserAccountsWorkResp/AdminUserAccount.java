@@ -293,8 +293,6 @@ public class AdminUserAccount extends javax.swing.JPanel {
         fieldName.setBounds(108, 90, 170, 23);
         add(fieldRole);
         fieldRole.setBounds(108, 120, 170, 23);
-
-        fieldPassword.setText("jPasswordField1");
         add(fieldPassword);
         fieldPassword.setBounds(110, 190, 170, 23);
         add(fieldLastLogin);

@@ -227,8 +227,6 @@ public class AdministerFacultyJPanel extends javax.swing.JPanel {
         lblPassword.setText("Password");
         add(lblPassword);
         lblPassword.setBounds(30, 200, 70, 17);
-
-        fieldPassword.setText("jPasswordField1");
         add(fieldPassword);
         fieldPassword.setBounds(100, 200, 170, 23);
 

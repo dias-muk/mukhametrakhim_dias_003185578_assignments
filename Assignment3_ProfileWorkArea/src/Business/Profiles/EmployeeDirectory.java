@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package Business.Profiles;
 
 import Business.Business;
@@ -25,12 +26,14 @@ public class EmployeeDirectory {
         employeelist = new ArrayList<>();
     }
 
+    /** Creates an employee profile for the person, stores and returns it. */
     public EmployeeProfile newEmployeeProfile(Person p) {
         EmployeeProfile sp = new EmployeeProfile(p);
         employeelist.add(sp);
         return sp;
     }
 
+    /** The employee with this NUID, or null when there is none. */
     public EmployeeProfile findEmployee(String nuid) {
         for (EmployeeProfile sp : employeelist) {
             if (sp.isMatch(nuid)) {
@@ -40,6 +43,7 @@ public class EmployeeDirectory {
         return null; //not found after going through the whole list
     }
 
+    /** Removes the employee profile (Business.deleteProfile also removes the login). */
     public void removeEmployee(EmployeeProfile employee) {
         employeelist.remove(employee);
     }

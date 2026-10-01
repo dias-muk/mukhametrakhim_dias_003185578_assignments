@@ -1,13 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
 
- /*
- * WorkAreaJPanel.java
- *
- * Created on May 17, 2020, 8:35:29 AM
- */
 package UserInterface.WorkAreas.AdminRole;
 
 import Business.Business;
@@ -21,8 +17,11 @@ import UserInterface.WorkAreas.MyProfileWorkResp.MyProfileJPanel;
 import javax.swing.JPanel;
 
 /**
+ * The admin's home screen: one button per responsibility (user accounts,
+ * employees, students, faculty and My Profile). Each button pushes its
+ * screen onto the CardLayout stack.
  *
- * @author kal
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -31,7 +30,9 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
     UserAccount useraccount;
 
     /**
-     * Creates new form UnitRiskWorkArea
+     * @param b the business that holds every directory
+     * @param ua the admin who is logged in
+     * @param clp the CardLayout panel that holds the screen stack
      */
 
     public AdminRoleWorkAreaJPanel(Business b, UserAccount ua, JPanel clp) {
@@ -145,9 +146,10 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnManageFaculty, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAdminUserAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,10 +157,7 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnHR, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnManageStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(lblTitle)))
+                            .addComponent(btnManageStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

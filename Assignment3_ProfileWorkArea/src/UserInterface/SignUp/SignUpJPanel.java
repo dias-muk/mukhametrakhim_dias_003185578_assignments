@@ -57,7 +57,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         fieldPassword = new javax.swing.JPasswordField();
         btnCreate = new javax.swing.JButton();
         lblInfo = new javax.swing.JLabel();
-        lblPassword1 = new javax.swing.JLabel();
+        lblConfirm = new javax.swing.JLabel();
         fieldConfirm = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(31, 58, 95));
@@ -88,8 +88,6 @@ public class SignUpJPanel extends javax.swing.JPanel {
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
 
-        fieldPassword.setText("jPasswordField1");
-
         btnCreate.setBackground(new java.awt.Color(0, 128, 0));
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create Account");
@@ -103,10 +101,8 @@ public class SignUpJPanel extends javax.swing.JPanel {
         lblInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblInfo.setText("Sign-up creates a Student account. Admin and faculty accounts are created by the administrator.");
 
-        lblPassword1.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword1.setText("Confirm password");
-
-        fieldConfirm.setText("jPasswordField1");
+        lblConfirm.setForeground(new java.awt.Color(255, 255, 255));
+        lblConfirm.setText("Confirm password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,7 +121,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
                                 .addGap(95, 95, 95)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPassword1)
+                                    .addComponent(lblConfirm)
                                     .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblName)
                                     .addComponent(lblNUID)
@@ -166,7 +162,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
                     .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword1)
+                    .addComponent(lblConfirm)
                     .addComponent(fieldConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -228,12 +224,12 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField fieldNuid;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUsername;
+    private javax.swing.JLabel lblConfirm;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblNUID;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblUsername;
     // End of variables declaration//GEN-END:variables
 }

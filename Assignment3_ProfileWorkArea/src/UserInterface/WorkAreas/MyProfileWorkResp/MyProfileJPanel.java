@@ -47,19 +47,19 @@ public class MyProfileJPanel extends javax.swing.JPanel {
 
         // The two rows below depend on the role
         if (profile instanceof StudentProfile) {
-            lblExtra1.setText("Program:");
+            lblExtra1.setText("Program");
             fill(fieldExtra1, ((StudentProfile) profile).getProgram());
             lblExtra2.setVisible(false);
             fieldExtra2.setVisible(false);
         } else if (profile instanceof EmployeeProfile) {
-            lblExtra1.setText("Department:");
+            lblExtra1.setText("Department");
             fill(fieldExtra1, ((EmployeeProfile) profile).getDepartment());
-            lblExtra2.setText("Title:");
+            lblExtra2.setText("Title");
             fill(fieldExtra2, ((EmployeeProfile) profile).getTitle());
         } else if (profile instanceof FacultyProfile) {
-            lblExtra1.setText("Department:");
+            lblExtra1.setText("Department");
             fill(fieldExtra1, ((FacultyProfile) profile).getDepartment());
-            lblExtra2.setText("Title:");
+            lblExtra2.setText("Title");
             fill(fieldExtra2, ((FacultyProfile) profile).getTitle());
         }
     }
@@ -154,7 +154,7 @@ public class MyProfileJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNUID)
@@ -175,22 +175,16 @@ public class MyProfileJPanel extends javax.swing.JPanel {
                             .addComponent(fieldExtra1)
                             .addComponent(fieldExtra2)
                             .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(fieldLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAccountUpdated)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fieldLastUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(lblAccountUpdated)
+                            .addComponent(lblLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fieldLastLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldLastUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(208, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(224, 224, 224)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(427, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,12 +227,9 @@ public class MyProfileJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblExtra3))
-                .addGap(133, 133, 133))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(404, 404, 404)
-                    .addComponent(btnBack)
-                    .addContainerGap(55, Short.MAX_VALUE)))
+                .addGap(104, 104, 104)
+                .addComponent(btnBack)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

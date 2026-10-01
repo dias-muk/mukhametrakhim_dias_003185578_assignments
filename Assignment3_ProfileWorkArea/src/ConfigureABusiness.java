@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-
-*/
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
+ */
 
 import Business.Business;
 import Business.Person.Person;
@@ -18,8 +17,11 @@ import Business.UserAccounts.UserAccountDirectory;
 
 
 /**
+ * Builds the demo data the application starts with: an admin, a faculty
+ * member, a student with a login, and a student the admin registered but who
+ * has not signed up yet. Every person's id is their NUID.
  *
- * @author kal bugrara
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 class ConfigureABusiness {
 

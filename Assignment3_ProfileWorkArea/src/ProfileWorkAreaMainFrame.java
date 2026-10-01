@@ -82,19 +82,20 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
         });
 
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("User Name");
+        lblUsername.setText("Username");
 
         fieldUsername.setText("admin");
 
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
 
-        fieldPassword.setText("jPasswordField1");
         fieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldPasswordActionPerformed(evt);
             }
         });
+
+        lblLoggedInAs.setForeground(new java.awt.Color(255, 255, 255));
 
         btnLogout.setBackground(new java.awt.Color(192, 57, 43));
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,7 +166,7 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
         lblWelcome.setBackground(new java.awt.Color(244, 246, 248));
         lblWelcome.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(45, 52, 54));
-        lblWelcome.setText("Education Going Digital .... Info 5100 ");
+        lblWelcome.setText("Education Going Digital Info 5100 ");
         CardSequencePanel.add(lblWelcome, "card2");
 
         SplitHomeArea.setRightComponent(CardSequencePanel);

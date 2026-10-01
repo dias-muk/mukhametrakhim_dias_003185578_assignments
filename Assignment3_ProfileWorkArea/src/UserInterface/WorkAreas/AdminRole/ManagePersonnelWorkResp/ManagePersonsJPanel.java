@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
 
 import Business.Business;
@@ -22,14 +23,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManagePersonsJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSuppliersJPanel
-     */
     JPanel CardSequencePanel;
     Business business;
     UserAccount currentUser;    // the admin who is logged in
 
 
+    /**
+     * @param bz the business that holds every directory
+     * @param current the admin who is logged in (they may not delete their own employee profile)
+     * @param jp the CardLayout panel that holds the screen stack
+     */
     public ManagePersonsJPanel(Business bz, UserAccount current, JPanel jp) {
         CardSequencePanel = jp;
         this.business = bz;
@@ -38,6 +41,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         refreshTable();
     }
     
+    /** Reloads the table: one row per employee. */
     public void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);

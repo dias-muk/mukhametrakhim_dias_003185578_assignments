@@ -1,15 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package Business.Profiles;
 
 import Business.Person.Person;
 
 /**
+ * The employee role. Every employee in this application is an
+ * administrator, so getRole() returns "Admin" and login opens the admin
+ * work area.
  *
- * @author kal bugrara
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class EmployeeProfile extends Profile {
 

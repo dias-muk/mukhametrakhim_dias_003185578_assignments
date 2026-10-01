@@ -1,13 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package Business.Person;
 
 /**
+ * A real person in the system, whatever roles they hold. The id is the
+ * person's NUID: it is unique across everyone and never changes once the
+ * person is created.
  *
- * @author kal bugrara
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class Person {
 
@@ -49,6 +53,7 @@ public class Person {
         this.phone = phone;
     }
 
+    /** True when this person has the given NUID. */
     public boolean isMatch(String id) {
         return getPersonId().equals(id);
     }

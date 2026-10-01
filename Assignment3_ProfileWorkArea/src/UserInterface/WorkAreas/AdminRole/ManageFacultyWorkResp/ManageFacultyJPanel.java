@@ -3,6 +3,7 @@
  * Assignment 3 - Profiles and Work Areas
  * Dias Mukhametrakhim, NUID 003185578
  */
+
 package UserInterface.WorkAreas.AdminRole.ManageFacultyWorkResp;
 
 import Business.Business;
@@ -30,6 +31,7 @@ public class ManageFacultyJPanel extends javax.swing.JPanel {
         refreshTable();
     }
     
+    /** Reloads the table: one row per faculty member. */
     public void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) tblFaculty.getModel();
         model.setRowCount(0);

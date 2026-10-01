@@ -35,7 +35,7 @@
                               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblPassword" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="lblPassword1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblConfirm" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblUsername" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblNUID" min="-2" max="-2" attributes="0"/>
@@ -89,7 +89,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fieldConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
@@ -168,9 +168,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="fieldPassword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCreate">
       <Properties>
@@ -195,7 +192,7 @@
         <Property name="text" type="java.lang.String" value="Sign-up creates a Student account. Admin and faculty accounts are created by the administrator."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblPassword1">
+    <Component class="javax.swing.JLabel" name="lblConfirm">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -204,9 +201,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="fieldConfirm">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
