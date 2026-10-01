@@ -12,6 +12,7 @@ package UserInterface.WorkAreas.FacultyRole;
 
 import Business.Business;
 import Business.UserAccounts.UserAccount;
+import UserInterface.WorkAreas.MyProfileWorkResp.MyProfileJPanel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -54,6 +55,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         btnPerformanceReports = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(62, 75, 98));
         setForeground(new java.awt.Color(51, 51, 51));
 
         btnManageCourses.setBackground(new java.awt.Color(102, 153, 255));
@@ -61,6 +63,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         btnManageCourses.setForeground(new java.awt.Color(255, 255, 255));
         btnManageCourses.setText(" Manage Courses");
         btnManageCourses.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageCourses.setBorderPainted(false);
         btnManageCourses.setMaximumSize(new java.awt.Dimension(200, 40));
         btnManageCourses.setMinimumSize(new java.awt.Dimension(20, 23));
         btnManageCourses.setPreferredSize(new java.awt.Dimension(240, 30));
@@ -75,6 +78,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         btnManageStudentsProfiles.setForeground(new java.awt.Color(255, 255, 255));
         btnManageStudentsProfiles.setText("Manage Students Profiles");
         btnManageStudentsProfiles.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnManageStudentsProfiles.setBorderPainted(false);
         btnManageStudentsProfiles.setMaximumSize(new java.awt.Dimension(200, 40));
         btnManageStudentsProfiles.setMinimumSize(new java.awt.Dimension(20, 20));
         btnManageStudentsProfiles.setPreferredSize(new java.awt.Dimension(240, 25));
@@ -89,6 +93,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         btnMyProfile.setForeground(new java.awt.Color(255, 255, 255));
         btnMyProfile.setText("My Profile");
         btnMyProfile.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMyProfile.setBorderPainted(false);
         btnMyProfile.setMaximumSize(new java.awt.Dimension(145, 40));
         btnMyProfile.setMinimumSize(new java.awt.Dimension(20, 20));
         btnMyProfile.setPreferredSize(new java.awt.Dimension(240, 25));
@@ -103,6 +108,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         btnPerformanceReports.setForeground(new java.awt.Color(255, 255, 255));
         btnPerformanceReports.setText("Performance Reports");
         btnPerformanceReports.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPerformanceReports.setBorderPainted(false);
         btnPerformanceReports.setMaximumSize(new java.awt.Dimension(200, 40));
         btnPerformanceReports.setMinimumSize(new java.awt.Dimension(20, 20));
         btnPerformanceReports.setPreferredSize(new java.awt.Dimension(240, 25));
@@ -113,6 +119,7 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Faculty Work Area - Welcome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -167,13 +174,9 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageStudentsProfilesActionPerformed
 
     private void btnMyProfileIdentifyEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyProfileIdentifyEventsActionPerformed
-        JOptionPane.showMessageDialog(this, "My Profile is coming soon.", "Coming soon", JOptionPane.INFORMATION_MESSAGE);
-//        CardSequencePanel.removeAll();
-        //    IdentifyEventTypes iet= new IdentifyEventTypes(businessunit, CardSequencePanel);
-
-        //    CardSequencePanel.add("IdentifyEventTypes", iet);
-//        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-        //((java.awt.CardLayout)CardSequencePanel.getLayout()).show(CardSequencePanel, "IdentifyEventTypes");
+        MyProfileJPanel profile = new MyProfileJPanel(useraccount, CardSequencePanel);
+        CardSequencePanel.add("MyProfile", profile);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 }//GEN-LAST:event_btnMyProfileIdentifyEventsActionPerformed
 
     private void btnPerformanceReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerformanceReportsActionPerformed

@@ -16,6 +16,7 @@ import UserInterface.WorkAreas.AdminRole.AdministerUserAccountsWorkResp.ManageUs
 import UserInterface.WorkAreas.AdminRole.ManageFacultyWorkResp.ManageFacultyJPanel;
 import UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp.ManagePersonsJPanel;
 import UserInterface.WorkAreas.AdminRole.ManageStudentsWorkResp.ManageStudentsJPanel;
+import UserInterface.WorkAreas.MyProfileWorkResp.MyProfileJPanel;
 
 import javax.swing.JPanel;
 
@@ -57,8 +58,8 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
         btnManageStudents = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(244, 246, 248));
-        setForeground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(62, 75, 98));
+        setForeground(new java.awt.Color(255, 255, 255));
 
         btnAdminUserAccounts.setBackground(new java.awt.Color(46, 134, 222));
         btnAdminUserAccounts.setFont(getFont());
@@ -136,7 +137,7 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lblTitle.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(45, 52, 54));
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Admin Work Area - Welcome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -198,6 +199,9 @@ public class AdminRoleWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageStudentsActionPerformed
 
     private void btnMyProfileIdentifyEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyProfileIdentifyEventsActionPerformed
+        MyProfileJPanel profile = new MyProfileJPanel(useraccount, CardSequencePanel);
+        CardSequencePanel.add("MyProfile", profile);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_btnMyProfileIdentifyEventsActionPerformed
 
     private void btnManageFacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFacultyActionPerformed
