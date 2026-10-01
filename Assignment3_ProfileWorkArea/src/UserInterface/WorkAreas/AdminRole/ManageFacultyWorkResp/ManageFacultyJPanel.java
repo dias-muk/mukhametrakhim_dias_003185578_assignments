@@ -1,55 +1,47 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
-package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
+package UserInterface.WorkAreas.AdminRole.ManageFacultyWorkResp;
 
 import Business.Business;
-import Business.Profiles.EmployeeProfile;
+import Business.Profiles.FacultyProfile;
 import Business.UserAccounts.UserAccount;
 import javax.swing.JOptionPane;
-
-
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Lists every employee (admin). From here the admin registers a new employee
- * or opens one to update or delete them.
+ * Lists every faculty member. From here the admin adds a faculty member
+ * (with a login) or opens one to update or delete them.
  *
- * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
+ * @author Dias Mukhametrakhim
  */
-public class ManagePersonsJPanel extends javax.swing.JPanel {
-
-    /**
-     * Creates new form ManageSuppliersJPanel
-     */
+public class ManageFacultyJPanel extends javax.swing.JPanel {
     JPanel CardSequencePanel;
     Business business;
-    UserAccount currentUser;    // the admin who is logged in
 
 
-    public ManagePersonsJPanel(Business bz, UserAccount current, JPanel jp) {
+    public ManageFacultyJPanel(Business bz, JPanel jp) {
         CardSequencePanel = jp;
         this.business = bz;
-        currentUser = current;
         initComponents();
         refreshTable();
     }
     
     public void refreshTable() {
-        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblFaculty.getModel();
         model.setRowCount(0);
 
-        for (EmployeeProfile ep : business.getEmployeeDirectory().getEmployeeList()) {
-            UserAccount ua = business.getUserAccountDirectory().findByProfile(ep);
+        for (FacultyProfile fp : business.getFacultyDirectory().getFacultyList()) {
+            UserAccount ua = business.getUserAccountDirectory().findByProfile(fp);
             Object[] row = new Object[6];
-            row[0] = ep.getPerson().getPersonId();     // the NUID finds the employee again on selection
-            row[1] = ep.getPerson().getName();
-            row[2] = ep.getDepartment();
-            row[3] = ep.getTitle();
-            row[4] = ep.getPerson().getEmail();
+            row[0] = fp.getPerson().getPersonId();     // the NUID finds the faculty member again on selection
+            row[1] = fp.getPerson().getName();
+            row[2] = fp.getDepartment();
+            row[3] = fp.getTitle();
+            row[4] = fp.getPerson().getEmail();
             row[5] = ua == null ? "No account" : ua.getUserLoginName();
             model.addRow(row);
         }
@@ -69,7 +61,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployees = new javax.swing.JTable();
+        tblFaculty = new javax.swing.JTable();
         btnRegister = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(31, 58, 95));
@@ -101,11 +93,11 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("Manage Personnel (HR)");
+        lblTitle.setText("Manage Faculty");
         add(lblTitle);
         lblTitle.setBounds(21, 20, 550, 28);
 
-        tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
+        tblFaculty.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -121,13 +113,13 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblEmployees.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(tblEmployees);
-        if (tblEmployees.getColumnModel().getColumnCount() > 0) {
-            tblEmployees.getColumnModel().getColumn(0).setResizable(false);
-            tblEmployees.getColumnModel().getColumn(2).setResizable(false);
-            tblEmployees.getColumnModel().getColumn(3).setResizable(false);
-            tblEmployees.getColumnModel().getColumn(4).setResizable(false);
+        tblFaculty.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(tblFaculty);
+        if (tblFaculty.getColumnModel().getColumnCount() > 0) {
+            tblFaculty.getColumnModel().getColumn(0).setResizable(false);
+            tblFaculty.getColumnModel().getColumn(2).setResizable(false);
+            tblFaculty.getColumnModel().getColumn(3).setResizable(false);
+            tblFaculty.getColumnModel().getColumn(4).setResizable(false);
         }
 
         add(jScrollPane1);
@@ -135,7 +127,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
 
         btnRegister.setBackground(new java.awt.Color(0, 128, 0));
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Register Employee");
+        btnRegister.setText("Add Faculty");
         btnRegister.setBorderPainted(false);
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,22 +144,22 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        int row = tblEmployees.getSelectedRow();
+        int row = tblFaculty.getSelectedRow();
         if (row < 0) {
-            JOptionPane.showMessageDialog(this, "Please select an employee first.",
-                    "No employee selected", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a faculty member first.",
+                    "No faculty member selected", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String nuid = (String) tblEmployees.getValueAt(row, 0);
-        EmployeeProfile employee = business.getEmployeeDirectory().findEmployee(nuid);
-        AdministerPersonJPanel detail = new AdministerPersonJPanel(business, employee, currentUser, CardSequencePanel);
-        CardSequencePanel.add("EmployeeDetail", detail);
+        String nuid = (String) tblFaculty.getValueAt(row, 0);
+        FacultyProfile faculty = business.getFacultyDirectory().findFaculty(nuid);
+        AdministerFacultyJPanel detail = new AdministerFacultyJPanel(business, faculty, CardSequencePanel);
+        CardSequencePanel.add("FacultyDetail", detail);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        AdministerPersonJPanel detail = new AdministerPersonJPanel(business, null, currentUser, CardSequencePanel);
-        CardSequencePanel.add("EmployeeDetail", detail);
+        AdministerFacultyJPanel detail = new AdministerFacultyJPanel(business, null, CardSequencePanel);
+        CardSequencePanel.add("FacultyDetail", detail);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
@@ -178,7 +170,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tblEmployees;
+    private javax.swing.JTable tblFaculty;
     // End of variables declaration//GEN-END:variables
 
 }

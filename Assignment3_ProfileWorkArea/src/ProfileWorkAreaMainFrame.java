@@ -66,20 +66,25 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        actionsidejpanel.setBackground(new java.awt.Color(0, 153, 153));
+        actionsidejpanel.setBackground(new java.awt.Color(31, 58, 95));
         actionsidejpanel.setMinimumSize(new java.awt.Dimension(200, 200));
 
+        btnLogin.setBackground(new java.awt.Color(46, 134, 222));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
+        btnLogin.setBorderPainted(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LoginButtonActionPerformed(evt);
             }
         });
 
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("User Name");
 
         fieldUsername.setText("admin");
 
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
 
         fieldPassword.setText("jPasswordField1");
@@ -89,7 +94,10 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(192, 57, 43));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Log Out");
+        btnLogout.setBorderPainted(false);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
@@ -139,8 +147,9 @@ public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
 
         CardSequencePanel.setLayout(new java.awt.CardLayout());
 
+        lblWelcome.setBackground(new java.awt.Color(244, 246, 248));
         lblWelcome.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(102, 153, 255));
+        lblWelcome.setForeground(new java.awt.Color(45, 52, 54));
         lblWelcome.setText("Education Going Digital .... Info 5100 ");
         CardSequencePanel.add(lblWelcome, "card2");
 

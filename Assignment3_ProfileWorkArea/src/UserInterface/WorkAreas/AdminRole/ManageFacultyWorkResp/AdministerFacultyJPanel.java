@@ -1,46 +1,41 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
-package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
+package UserInterface.WorkAreas.AdminRole.ManageFacultyWorkResp;
 
 import Business.Business;
 import Business.Person.Person;
-import Business.Profiles.EmployeeProfile;
+import Business.Profiles.FacultyProfile;
 import Business.UserAccounts.UserAccount;
 import UserInterface.Validator.Validator;
 import javax.swing.JOptionPane;
-
 import javax.swing.JPanel;
 
 /**
- * One employee (admin). Opened with an employee, the admin can update or
- * delete them; opened with null, it registers a new employee with a login.
+ * One faculty member. Opened with a faculty profile, the admin can update or
+ * delete it; opened with null, it adds a new faculty member with a login.
+ * Only the admin can create faculty accounts; sign-up makes students only.
  *
- * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
+ * @author Dias Mukhametrakhim
  */
-public class AdministerPersonJPanel extends javax.swing.JPanel {
+public class AdministerFacultyJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSuppliersJPanel
-     */
     JPanel CardSequencePanel;
     Business business;
-    EmployeeProfile employee;       // null while registering a new employee
-    UserAccount currentUser;        // the admin who is logged in
+    FacultyProfile faculty;     // null while adding a new faculty member
 
-    public AdministerPersonJPanel(Business bz, EmployeeProfile ep, UserAccount current, JPanel jp) {
+    public AdministerFacultyJPanel(Business bz, FacultyProfile fp, JPanel jp) {
 
         CardSequencePanel = jp;
         this.business = bz;
-        employee = ep;
-        currentUser = current;
+        faculty = fp;
         initComponents();
 
-        if (employee == null) {
-            lblHeader.setText("Register New Employee");
-            btnSave.setText("Register Employee");
+        if (faculty == null) {
+            lblHeader.setText("Add New Faculty Member");
+            btnSave.setText("Add Faculty");
             btnDelete.setVisible(false);
         } else {
             btnSave.setText("Save Changes");
@@ -48,25 +43,26 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
             fieldUsername.setEditable(false);   // logins are changed in Administer User Accounts
             lblPassword.setVisible(false);
             fieldPassword.setVisible(false);
-            showEmployee();
+            showFaculty();
         }
 
     }
-       /** Fills the form from the selected employee. */
-    private void showEmployee() {
-        Person person = employee.getPerson();
-        lblHeader.setText("Employee: " + person.getName());
+    
+   /** Fills the form from the selected faculty member. */
+    private void showFaculty() {
+        Person person = faculty.getPerson();
+        lblHeader.setText("Faculty: " + person.getName());
         fieldNuid.setText(person.getPersonId());
         fieldName.setText(person.getName());
         fieldEmail.setText(person.getEmail());
         fieldPhone.setText(person.getPhone());
-        fieldDepartment.setText(employee.getDepartment());
-        fieldTitle.setText(employee.getTitle());
-        UserAccount ua = business.getUserAccountDirectory().findByProfile(employee);
+        fieldDepartment.setText(faculty.getDepartment());
+        fieldTitle.setText(faculty.getTitle());
+        UserAccount ua = business.getUserAccountDirectory().findByProfile(faculty);
         fieldUsername.setText(ua == null ? "No account" : ua.getUserLoginName());
     }
 
-    /** The fields every employee needs, checked top to bottom. */
+    /** The fields every faculty member needs, checked top to bottom. */
     private boolean detailsAreFilled() {
         return Validator.isFilled(this, fieldNuid, "NUID")
                 && Validator.isFilled(this, fieldName, "Name")
@@ -76,16 +72,16 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
                 && Validator.isFilled(this, fieldTitle, "Title");
     }
 
-    /** Copies the form into the person and the employee profile. */
-    private void copyDetailsInto(Person person, EmployeeProfile ep) {
+    /** Copies the form into the person and the faculty profile. */
+    private void copyDetailsInto(Person person, FacultyProfile fp) {
         person.setName(fieldName.getText().trim());
         person.setEmail(fieldEmail.getText().trim());
         person.setPhone(fieldPhone.getText().trim());
-        ep.setDepartment(fieldDepartment.getText().trim());
-        ep.setTitle(fieldTitle.getText().trim());
+        fp.setDepartment(fieldDepartment.getText().trim());
+        fp.setTitle(fieldTitle.getText().trim());
     }
 
-    private void registerEmployee() {
+    private void addFaculty() {
         if (!detailsAreFilled()
                 || !Validator.isFilled(this, fieldUsername, "Username")
                 || !Validator.isFilled(this, fieldPassword, "Password")) {
@@ -112,11 +108,11 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
             return;
         }
         Person person = business.getPersonDirectory().newPerson(nuid, fieldName.getText().trim());
-        EmployeeProfile ep = business.getEmployeeDirectory().newEmployeeProfile(person);
-        copyDetailsInto(person, ep);
-        business.getUserAccountDirectory().newUserAccount(ep, un, pw);
-        JOptionPane.showMessageDialog(this, "Employee registered. They can log in as \"" + un + "\".",
-                "Registered", JOptionPane.INFORMATION_MESSAGE);
+        FacultyProfile fp = business.getFacultyDirectory().newFacultyProfile(person);
+        copyDetailsInto(person, fp);
+        business.getUserAccountDirectory().newUserAccount(fp, un, pw);
+        JOptionPane.showMessageDialog(this, "Faculty member added. They can log in as \"" + un + "\".",
+                "Faculty added", JOptionPane.INFORMATION_MESSAGE);
         goBack();
     }
 
@@ -124,18 +120,18 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
         if (!detailsAreFilled()) {
             return;
         }
-        copyDetailsInto(employee.getPerson(), employee);
-        showEmployee();
-        JOptionPane.showMessageDialog(this, "Employee updated.", "Saved", JOptionPane.INFORMATION_MESSAGE);
+        copyDetailsInto(faculty.getPerson(), faculty);
+        showFaculty();
+        JOptionPane.showMessageDialog(this, "Faculty member updated.", "Saved", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    /** Removes this screen and shows the employee list again, reloaded. */
+    /** Removes this screen and shows the faculty list again, reloaded. */
     private void goBack() {
         CardSequencePanel.remove(this);
         java.awt.Component[] stack = CardSequencePanel.getComponents();
         java.awt.Component below = stack[stack.length - 1];
-        if (below instanceof ManagePersonsJPanel) {
-            ((ManagePersonsJPanel) below).refreshTable();
+        if (below instanceof ManageFacultyJPanel) {
+            ((ManageFacultyJPanel) below).refreshTable();
         }
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
     }
@@ -147,7 +143,6 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
     private void warn(String message) {
         JOptionPane.showMessageDialog(this, message, "Check your input", JOptionPane.WARNING_MESSAGE);
     }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -196,7 +191,7 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
 
         lblHeader.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(255, 255, 255));
-        lblHeader.setText("Manage Person Profile");
+        lblHeader.setText("Manage Faculty Profile");
         add(lblHeader);
         lblHeader.setBounds(21, 20, 550, 28);
 
@@ -253,7 +248,7 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
 
         btnDelete.setBackground(new java.awt.Color(192, 57, 43));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete Employee");
+        btnDelete.setText("Delete Faculty");
         btnDelete.setBorderPainted(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,24 +283,20 @@ public class AdministerPersonJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        if (currentUser.getAssociatedPersonProfile() == employee) {
-            error("You cannot delete your own employee profile while you are logged in.");
-            return;
-        }
         int answer = JOptionPane.showConfirmDialog(this,
-                "Delete " + employee.getPerson().getName() + "? Their login will be deleted too.",
+                "Delete " + faculty.getPerson().getName() + "? Their login will be deleted too.",
                 "Confirm delete", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (answer != JOptionPane.YES_OPTION) {
             return;
         }
-        business.deleteProfile(employee);
-        JOptionPane.showMessageDialog(this, "Employee deleted.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
+        business.deleteProfile(faculty);
+        JOptionPane.showMessageDialog(this, "Faculty member deleted.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
         goBack();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        if (employee == null) {
-            registerEmployee();
+        if (faculty == null) {
+            addFaculty();
         } else {
             saveChanges();
         }

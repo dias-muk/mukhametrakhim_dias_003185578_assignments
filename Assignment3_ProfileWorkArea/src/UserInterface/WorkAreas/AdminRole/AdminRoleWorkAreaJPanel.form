@@ -2,6 +2,9 @@
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="f8" green="f6" red="f4" type="rgb"/>
+    </Property>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="33" green="33" red="33" type="rgb"/>
     </Property>
@@ -23,22 +26,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnManageFaculty" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="btnAdminUserAccounts" min="-2" pref="164" max="-2" attributes="0"/>
                           <Component id="btnMyProfile" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnManageFaculty" min="-2" pref="164" max="-2" attributes="0"/>
-                                  <Component id="btnAdminUserAccounts" min="-2" pref="164" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnHR" min="-2" pref="164" max="-2" attributes="0"/>
-                                  <Component id="btnManageStudents" min="-2" pref="164" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnHR" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="btnManageStudents" min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -60,14 +58,14 @@
                   <Component id="btnHR" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btnAdminUserAccounts" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnManageFaculty" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="btnManageStudents" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="btnMyProfile" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace pref="123" max="32767" attributes="0"/>
+              <EmptySpace pref="160" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +74,7 @@
     <Component class="javax.swing.JButton" name="btnAdminUserAccounts">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="66" type="rgb"/>
+          <Color blue="de" green="86" red="2e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection component="Form" name="font" type="property"/>
@@ -86,10 +84,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Administer User Accounts"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
+          <Border info="null"/>
         </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 40]"/>
         </Property>
@@ -107,7 +104,7 @@
     <Component class="javax.swing.JButton" name="btnManageFaculty">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="66" type="rgb"/>
+          <Color blue="de" green="86" red="2e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection component="Form" name="font" type="property"/>
@@ -117,10 +114,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Faculty"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
+          <Border info="null"/>
         </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 40]"/>
         </Property>
@@ -138,7 +134,7 @@
     <Component class="javax.swing.JButton" name="btnHR">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="66" type="rgb"/>
+          <Color blue="de" green="86" red="2e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection component="Form" name="font" type="property"/>
@@ -148,10 +144,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Employees (HR)"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
+          <Border info="null"/>
         </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 40]"/>
         </Property>
@@ -169,7 +164,7 @@
     <Component class="javax.swing.JButton" name="btnMyProfile">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="66" type="rgb"/>
+          <Color blue="de" green="86" red="2e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection component="Form" name="font" type="property"/>
@@ -179,10 +174,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="My Profile"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
+          <Border info="null"/>
         </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[145, 40]"/>
         </Property>
@@ -200,7 +194,7 @@
     <Component class="javax.swing.JButton" name="btnManageStudents">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="66" type="rgb"/>
+          <Color blue="de" green="86" red="2e" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection component="Form" name="font" type="property"/>
@@ -210,10 +204,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Students"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder/>
-          </Border>
+          <Border info="null"/>
         </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[200, 40]"/>
         </Property>
@@ -232,6 +225,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="18" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="36" green="34" red="2d" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Admin Work Area - Welcome"/>
       </Properties>

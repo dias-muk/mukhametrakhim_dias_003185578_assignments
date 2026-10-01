@@ -66,25 +66,30 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        lblUserAccounts = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUserAccount = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(31, 58, 95));
         setLayout(null);
 
-        btnBack.setText("<< Back");
+        btnBack.setBackground(new java.awt.Color(46, 134, 222));
+        btnBack.setForeground(new java.awt.Color(244, 246, 248));
+        btnBack.setText("Back");
+        btnBack.setBorderPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
         add(btnBack);
-        btnBack.setBounds(30, 420, 80, 23);
+        btnBack.setBounds(30, 420, 72, 23);
 
-        btnUpdate.setText("View / Update >>");
+        btnUpdate.setBackground(new java.awt.Color(46, 134, 222));
+        btnUpdate.setForeground(new java.awt.Color(244, 246, 248));
+        btnUpdate.setText("View / Update");
+        btnUpdate.setBorderPainted(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -93,15 +98,11 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
         add(btnUpdate);
         btnUpdate.setBounds(440, 420, 140, 23);
 
-        lblUserAccounts.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblUserAccounts.setText("User Accounts");
-        add(lblUserAccounts);
-        lblUserAccounts.setBounds(30, 100, 190, 17);
-
         lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Manage User Accounts");
         add(lblTitle);
-        lblTitle.setBounds(21, 20, 550, 28);
+        lblTitle.setBounds(30, 20, 550, 28);
 
         jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -139,9 +140,12 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(30, 140, 550, 240);
+        jScrollPane1.setBounds(30, 70, 550, 310);
 
+        btnAdd.setBackground(new java.awt.Color(0, 128, 0));
+        btnAdd.setForeground(new java.awt.Color(244, 246, 248));
         btnAdd.setText("Add Account");
+        btnAdd.setBorderPainted(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -186,7 +190,6 @@ public class ManageUserAccountsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JLabel lblUserAccounts;
     private javax.swing.JTable tblUserAccount;
     // End of variables declaration//GEN-END:variables
 

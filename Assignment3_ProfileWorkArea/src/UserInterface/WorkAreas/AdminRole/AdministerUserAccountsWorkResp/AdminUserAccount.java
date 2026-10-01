@@ -196,10 +196,13 @@ public class AdminUserAccount extends javax.swing.JPanel {
         fieldLastLogin = new javax.swing.JTextField();
         fieldLastUpdated = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(31, 58, 95));
         setLayout(null);
 
-        btnUpdate.setText("Update>>");
+        btnUpdate.setBackground(new java.awt.Color(46, 134, 222));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        btnUpdate.setBorderPainted(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -209,11 +212,15 @@ public class AdminUserAccount extends javax.swing.JPanel {
         btnUpdate.setBounds(440, 440, 170, 23);
 
         lblTitle.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Administer User Account");
         add(lblTitle);
         lblTitle.setBounds(21, 20, 550, 28);
 
-        btnBack.setText("<< Back");
+        btnBack.setBackground(new java.awt.Color(46, 134, 222));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.setBorderPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -222,26 +229,32 @@ public class AdminUserAccount extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(20, 440, 100, 23);
 
+        lblNUID.setForeground(new java.awt.Color(255, 255, 255));
         lblNUID.setText("NUID");
         add(lblNUID);
         lblNUID.setBounds(40, 70, 30, 17);
 
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name");
         add(lblName);
         lblName.setBounds(40, 100, 34, 17);
 
+        lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("Role");
         add(lblRole);
         lblRole.setBounds(40, 130, 26, 17);
 
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("Username");
         add(lblUsername);
         lblUsername.setBounds(40, 160, 70, 17);
 
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Password");
         add(lblPassword);
         lblPassword.setBounds(40, 190, 70, 17);
 
+        chkActive.setForeground(new java.awt.Color(255, 255, 255));
         chkActive.setText("Account is active");
         chkActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,15 +264,20 @@ public class AdminUserAccount extends javax.swing.JPanel {
         add(chkActive);
         chkActive.setBounds(40, 220, 130, 21);
 
+        lblLastLogin.setForeground(new java.awt.Color(255, 255, 255));
         lblLastLogin.setText("Last login");
         add(lblLastLogin);
         lblLastLogin.setBounds(40, 250, 80, 17);
 
+        lblLastUpdate.setForeground(new java.awt.Color(255, 255, 255));
         lblLastUpdate.setText("Last updated");
         add(lblLastUpdate);
         lblLastUpdate.setBounds(40, 280, 90, 17);
 
+        btnDelete.setBackground(new java.awt.Color(192, 57, 43));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete Account");
+        btnDelete.setBorderPainted(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
