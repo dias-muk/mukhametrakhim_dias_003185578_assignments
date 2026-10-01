@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
 
 import Business.Business;
@@ -20,16 +20,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
+ * The main window: login and Sign Up on the left, and a CardLayout stack of
+ * screens on the right. Logging in replaces the stack with the work area for
+ * the user's role; Log Out puts the welcome card back.
  *
- * @author kal bugrara
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class ProfileWorkAreaMainFrame extends javax.swing.JFrame {
 
     Business business;
 
-    /**
-     * Creates new form PricingMainFrame
-     */
+    /** Builds the window and loads the demo data from ConfigureABusiness. */
 
     public ProfileWorkAreaMainFrame() {
         initComponents();

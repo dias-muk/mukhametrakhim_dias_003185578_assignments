@@ -1,13 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
 
- /*
- * WorkAreaJPanel.java
- *
- * Created on May 17, 2020, 8:35:29 AM
- */
 package UserInterface.WorkAreas.StudentRole;
 
 import Business.Business;
@@ -18,8 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
+ * The student home screen. My Profile shows the student's name, NUID and
+ * program; the other buttons belong to later assignments and say so in a
+ * message.
  *
- * @author kal
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class StudentWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -29,10 +28,9 @@ public class StudentWorkAreaJPanel extends javax.swing.JPanel {
     StudentProfile student;
 
     /**
-     * Creates new form UnitRiskWorkArea
-     * @param b
-     * @param spp
-     * @param clp
+     * @param b the business that holds every directory
+     * @param ua the student who is logged in
+     * @param clp the CardLayout panel that holds the screen stack
      */
 
     public StudentWorkAreaJPanel(Business b, UserAccount ua, JPanel clp) {

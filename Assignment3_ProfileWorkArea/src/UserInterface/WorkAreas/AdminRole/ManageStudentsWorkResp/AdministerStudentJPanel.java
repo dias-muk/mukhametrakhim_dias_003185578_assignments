@@ -324,7 +324,7 @@ public class AdministerStudentJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void fieldPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPhoneActionPerformed
-        // TODO add your handling code here:
+        // Enter in this field does nothing; Save stores the form
     }//GEN-LAST:event_fieldPhoneActionPerformed
 
 

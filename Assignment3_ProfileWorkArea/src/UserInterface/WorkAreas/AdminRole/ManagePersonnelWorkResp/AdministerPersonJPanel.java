@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package UserInterface.WorkAreas.AdminRole.ManagePersonnelWorkResp;
 
 import Business.Business;
@@ -22,9 +23,6 @@ import javax.swing.JPanel;
  */
 public class AdministerPersonJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSuppliersJPanel
-     */
     JPanel CardSequencePanel;
     Business business;
     EmployeeProfile employee;       // null while registering a new employee

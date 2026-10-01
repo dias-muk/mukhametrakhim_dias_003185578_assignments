@@ -1,13 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
 
- /*
- * WorkAreaJPanel.java
- *
- * Created on May 17, 2020, 8:35:29 AM
- */
 package UserInterface.WorkAreas.FacultyRole;
 
 import Business.Business;
@@ -17,8 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
+ * The faculty home screen. My Profile works; the other buttons belong to
+ * later assignments and say so in a message.
  *
- * @author kal
+ * @author kal bugrara (skeleton), Dias Mukhametrakhim (Assignment 3)
  */
 public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -27,7 +25,9 @@ public class FacultyWorkAreaJPanel extends javax.swing.JPanel {
     UserAccount useraccount;    // the faculty member who is logged in
 
     /**
-     * Creates new form UnitRiskWorkArea
+     * @param b the business that holds every directory
+     * @param ua the faculty member who is logged in
+     * @param clp the CardLayout panel that holds the screen stack
      */
 
     public FacultyWorkAreaJPanel(Business b, UserAccount ua, JPanel clp) {

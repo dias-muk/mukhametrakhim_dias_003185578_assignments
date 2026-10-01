@@ -1,8 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 3 - Profiles and Work Areas
+ * Dias Mukhametrakhim, NUID 003185578
  */
+
 package UserInterface.WorkAreas.AdminRole.AdministerUserAccountsWorkResp;
 
 import Business.Business;
@@ -20,9 +21,6 @@ import javax.swing.JPanel;
  */
 public class AdminUserAccount extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ManageSuppliersJPanel
-     */
     JPanel CardSequencePanel;
     Business business;
     UserAccount selecteduseraccount;    // null while creating a new account
@@ -314,7 +312,7 @@ public class AdminUserAccount extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void chkActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkActiveActionPerformed
-        // TODO add your handling code here:
+        // nothing to do here: the box is read when Save is clicked
     }//GEN-LAST:event_chkActiveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
