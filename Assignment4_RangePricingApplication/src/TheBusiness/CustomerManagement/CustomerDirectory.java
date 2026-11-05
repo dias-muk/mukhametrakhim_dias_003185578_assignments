@@ -31,6 +31,10 @@ public class CustomerDirectory {
         customerlist.add(sp);
         return sp;
     }
+    
+    public ArrayList<CustomerProfile> getCustomerList() {
+        return customerlist;
+    }
 
     public CustomerProfile findCustomer(String id) {
 

@@ -38,6 +38,10 @@ public class MasterOrderList {
  
     }
     
+    public ArrayList<Order> getOrderList(){
+        return orders;
+    }
+    
     public MasterOrderReport generateMasterOrderReport(){
     masterorderreport = new MasterOrderReport();
         
