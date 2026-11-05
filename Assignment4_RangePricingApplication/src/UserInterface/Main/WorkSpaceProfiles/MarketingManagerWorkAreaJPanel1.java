@@ -13,6 +13,7 @@ package UserInterface.Main.WorkSpaceProfiles;
 import TheBusiness.Business.Business;
 import UserInterface.ManageTheBusiness.ManageTheBusinessJPanel;
 import UserInterface.ProductManagement.ManageSuppliersJPanel;
+import UserInterface.Reports.ReportViewerJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -89,6 +90,8 @@ public class MarketingManagerWorkAreaJPanel1 extends javax.swing.JPanel {
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Manage Prices");
         jButton6.setFocusPainted(false);
+        jButton6.setToolTipText("Not part of Assignment 4");
+        jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6IdentifyEventsActionPerformed(evt);
@@ -162,23 +165,14 @@ public class MarketingManagerWorkAreaJPanel1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton6IdentifyEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6IdentifyEventsActionPerformed
-        // TODO add your handling code here:
-        CardSequencePanel.removeAll();
-        //    IdentifyEventTypes iet= new IdentifyEventTypes(businessunit, CardSequencePanel);
-
-        //    CardSequencePanel.add("IdentifyEventTypes", iet);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-        //((java.awt.CardLayout)CardSequencePanel.getLayout()).show(CardSequencePanel, "IdentifyEventTypes");
+        // Not part of Assignment 4. The screen this button opened was never
+        // built, so it does nothing rather than clearing the work area.
 }//GEN-LAST:event_jButton6IdentifyEventsActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-
-        CardSequencePanel.removeAll();
-//        ManageIncidents aos = new  ManageIncidents(businessunit, CardSequencePanel);
-        // aos.setAgenda(businessunit.getRiskManagementAgenda());
-//        CardSequencePanel.add("RiskAgendaObjectives", aos);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ReportViewerJPanel reportviewer = new ReportViewerJPanel(business, CardSequencePanel);
+        CardSequencePanel.add("ReportViewer", reportviewer);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).show(CardSequencePanel, "ReportViewer");
 }//GEN-LAST:event_jButton11ActionPerformed
 
 

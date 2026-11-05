@@ -172,6 +172,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Profile"/>
         <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
@@ -190,6 +192,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Review Commission"/>
         <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>

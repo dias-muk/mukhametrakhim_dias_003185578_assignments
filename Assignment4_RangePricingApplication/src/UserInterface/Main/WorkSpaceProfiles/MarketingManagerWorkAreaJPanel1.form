@@ -127,6 +127,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Prices"/>
         <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6IdentifyEventsActionPerformed"/>

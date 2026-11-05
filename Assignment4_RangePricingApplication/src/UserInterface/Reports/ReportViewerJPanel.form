@@ -177,7 +177,6 @@
               <Color blue="e1" green="d5" red="cb" type="rgb"/>
             </Property>
             <Property name="rowHeight" type="int" value="24"/>
-            <Property name="showVerticalLines" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

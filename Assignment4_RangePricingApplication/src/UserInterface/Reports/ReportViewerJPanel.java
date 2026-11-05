@@ -5,23 +5,125 @@
  */
 package UserInterface.Reports;
 
+import TheBusiness.Business.Business;
+import TheBusiness.CustomerManagement.CustomerSummary;
+import TheBusiness.ProductManagement.ProductPriceSummary;
+import TheBusiness.Supplier.SupplierSummary;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  * Report viewer screen. Lets the user pick one of the three reports and shows
  * its rows in the table.
  *
- * This file holds the layout only. The wiring - the business object, the card
- * panel, filling the combo box and building the table models - goes in the
- * constructor and the three empty handlers below.
+ * The combo box offers the three reports of Part 2. Picking one and pressing
+ * Run Report rebuilds the table model; the table itself is read only and can
+ * be sorted by clicking a column header.
  */
 public class ReportViewerJPanel extends javax.swing.JPanel {
+    
+    private static final String REPORT_PRODUCTS = "Most expensive products";
+    private static final String REPORT_CUSTOMERS = "Most valuable customers";
+    private static final String REPORT_SUPPLIERS = "Supplier report";
+
+    /** How many rows the product report shows. */
+    private static final int PRODUCT_ROWS = 50;
+
+    private final JPanel CardSequencePanel;
+    private final Business business;
 
     /**
      * Creates new form ReportViewerJPanel
      */
-    public ReportViewerJPanel() {
+    public ReportViewerJPanel(Business business, JPanel cardSequencePanel) {
+        this.business = business;
+        this.CardSequencePanel = cardSequencePanel;
         initComponents();
         UserInterface.TableStyle.apply(tblReport);
+        cmbReport.removeAllItems();
+        cmbReport.addItem(REPORT_PRODUCTS);
+        cmbReport.addItem(REPORT_CUSTOMERS);
+        cmbReport.addItem(REPORT_SUPPLIERS);
+
+        showSelectedReport();
     }
+    
+    /** Builds whichever report is selected in the combo box. */
+    private void showSelectedReport() {
+
+        Object selected = cmbReport.getSelectedItem();
+        if (REPORT_CUSTOMERS.equals(selected)) {
+            showMostValuableCustomers();
+        } else if (REPORT_SUPPLIERS.equals(selected)) {
+            showSupplierReport();
+        } else {
+            showMostExpensiveProducts();
+        }
+    }
+
+    /** Report #1 - product name, supplier name, product price. */
+    private void showMostExpensiveProducts() {
+
+        DefaultTableModel model = newTableModel(
+                new String[]{"Product", "Supplier", "Price"});
+
+        for (ProductPriceSummary ps
+                : business.getExpensiveProductsReport().getTopProducts(PRODUCT_ROWS)) {
+            model.addRow(new Object[]{
+                ps.getProductName(),
+                ps.getSupplierName(),
+                ps.getPrice()
+            });
+        }
+        tblReport.setModel(model);
+    }
+
+    /** Report #2 - customer name and total sales, highest first. */
+    private void showMostValuableCustomers() {
+
+        DefaultTableModel model = newTableModel(
+                new String[]{"Customer", "Orders", "Total Sales"});
+
+        for (CustomerSummary cs
+                : business.getCustomersReport().getCustomerSummariesByValue()) {
+            model.addRow(new Object[]{
+                cs.getCustomerName(),
+                cs.getNumberOfOrders(),
+                cs.getTotalSales()
+            });
+        }
+        tblReport.setModel(model);
+    }
+
+    /** Report #3 - supplier totals, loyalty and concentration scores. */
+    private void showSupplierReport() {
+
+        DefaultTableModel model = newTableModel(new String[]{
+            "Supplier", "Total Sales", "Loyalty Score",
+            "Avg Spending / Customer", "Top 5 Sales Score"});
+
+        for (SupplierSummary ss : business.getSupplierReport().getSupplierSummaryList()) {
+            model.addRow(new Object[]{
+                ss.getSupplierName(),
+                ss.getTotalSales(),
+                String.format("%.3f", ss.getLoyaltyScore()),
+                String.format("%.2f", ss.getAverageSpendingPerCustomer()),
+                String.format("%.3f", ss.getTopFiveSalesScore())
+            });
+        }
+        tblReport.setModel(model);
+    }
+
+    /** A table model with the given columns that the user cannot edit. */
+    private DefaultTableModel newTableModel(String[] columns) {
+        return new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,11 +262,14 @@ public class ReportViewerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cmbReportActionPerformed
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
-        // TODO add your handling code here:
+        showSelectedReport();
     }//GEN-LAST:event_btnRunActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
+        CardSequencePanel.revalidate();
+        CardSequencePanel.repaint();
     }//GEN-LAST:event_btnBackActionPerformed
 
 

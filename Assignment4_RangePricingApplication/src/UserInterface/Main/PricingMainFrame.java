@@ -61,6 +61,8 @@ public class PricingMainFrame extends javax.swing.JFrame {
         UserNameTextField = new javax.swing.JTextField();
         PasswordTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        lblSignedIn = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
         CardSequencePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,6 +110,24 @@ public class PricingMainFrame extends javax.swing.JFrame {
         });
         actionsidejpanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 244, 190, 36));
 
+        lblSignedIn.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        lblSignedIn.setForeground(new java.awt.Color(159, 179, 200));
+        lblSignedIn.setText(" ");
+        actionsidejpanel.add(lblSignedIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 292, 190, 20));
+
+        btnLogout.setBackground(new java.awt.Color(203, 213, 225));
+        btnLogout.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(31, 58, 95));
+        btnLogout.setText("Log out");
+        btnLogout.setEnabled(false);
+        btnLogout.setFocusPainted(false);
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        actionsidejpanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 190, 32));
+
         SplitHomeArea.setLeftComponent(actionsidejpanel);
 
         CardSequencePanel.setBackground(new java.awt.Color(244, 246, 248));
@@ -120,8 +140,6 @@ public class PricingMainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        // TODO add your handling code here:
-        //      WorkAreaJPanel ura = new WorkAreaJPanel(workareajpanl);
 
         String un = UserNameTextField.getText();
         String pw = PasswordTextField.getText();
@@ -129,43 +147,65 @@ public class PricingMainFrame extends javax.swing.JFrame {
         UserAccountDirectory uad = business.getUserAccountDirectory();
         UserAccount useraccount = uad.AuthenticateUser(un, pw);
         if (useraccount == null) {
+            lblSignedIn.setForeground(new java.awt.Color(255, 173, 173));
+            lblSignedIn.setText("Wrong user name or password");
             return;
         }
-        SalesPersonWorkAreaJPanel salesworkarea;
-        MarketingManagerWorkAreaJPanel1 marketingworkarea;
-        BusinessManagerWorkAreaJPanel bzmanagerworkarea;
-        String r = useraccount.getRole();
+
         Profile profile = useraccount.getAssociatedPersonProfile();
-        //       if (r.equalsIgnoreCase("sales")) {
-        
+        CardSequencePanel.removeAll();
+
         if (profile instanceof SalesPersonProfile) {
-
-            SalesPersonProfile spp = (SalesPersonProfile) profile;
-            salesworkarea = new SalesPersonWorkAreaJPanel(business, spp, CardSequencePanel);
-            CardSequencePanel.removeAll();
+            SalesPersonWorkAreaJPanel salesworkarea
+                    = new SalesPersonWorkAreaJPanel(business, (SalesPersonProfile) profile, CardSequencePanel);
             CardSequencePanel.add("Sales", salesworkarea);
-            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            ((java.awt.CardLayout) CardSequencePanel.getLayout()).show(CardSequencePanel, "Sales");
 
-        }
-
-        if (profile instanceof MarketingPersonProfile) {
-            marketingworkarea = new MarketingManagerWorkAreaJPanel1(business, CardSequencePanel);
-            CardSequencePanel.removeAll();
+        } else if (profile instanceof MarketingPersonProfile) {
+            MarketingManagerWorkAreaJPanel1 marketingworkarea
+                    = new MarketingManagerWorkAreaJPanel1(business, CardSequencePanel);
             CardSequencePanel.add("Marketing", marketingworkarea);
-            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            ((java.awt.CardLayout) CardSequencePanel.getLayout()).show(CardSequencePanel, "Marketing");
 
-        }
-
-        if (profile instanceof EmployeeProfile) {
-
-            bzmanagerworkarea = new BusinessManagerWorkAreaJPanel(business, CardSequencePanel);
-            CardSequencePanel.removeAll();
+        } else if (profile instanceof EmployeeProfile) {
+            BusinessManagerWorkAreaJPanel bzmanagerworkarea
+                    = new BusinessManagerWorkAreaJPanel(business, CardSequencePanel);
             CardSequencePanel.add("Admin", bzmanagerworkarea);
-            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-
+            ((java.awt.CardLayout) CardSequencePanel.getLayout()).show(CardSequencePanel, "Admin");
         }
 
+        setSignedIn(un);
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        CardSequencePanel.removeAll();
+        CardSequencePanel.revalidate();
+        CardSequencePanel.repaint();
+        setSignedOut();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    /**
+     * Locks the login form while somebody is signed in, so the Login button
+     * cannot be pressed a second time, and offers Log out instead.
+     */
+    private void setSignedIn(String username) {
+        lblSignedIn.setForeground(new java.awt.Color(159, 179, 200));
+        lblSignedIn.setText("Signed in as " + username);
+        UserNameTextField.setEnabled(false);
+        PasswordTextField.setEnabled(false);
+        jButton1.setEnabled(false);
+        btnLogout.setEnabled(true);
+    }
+
+    /** Puts the login form back the way it started. */
+    private void setSignedOut() {
+        lblSignedIn.setText(" ");
+        UserNameTextField.setEnabled(true);
+        PasswordTextField.setEnabled(true);
+        PasswordTextField.setText("");
+        jButton1.setEnabled(true);
+        btnLogout.setEnabled(false);
+    }
 
     /**
      * @param args the command line arguments
@@ -207,6 +247,8 @@ public class PricingMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField PasswordTextField;
     private javax.swing.JSplitPane SplitHomeArea;
     private javax.swing.JTextField UserNameTextField;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel lblSignedIn;
     private javax.swing.JPanel actionsidejpanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
