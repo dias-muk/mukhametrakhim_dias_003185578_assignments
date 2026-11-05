@@ -1,13 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.MarketModel;
 
 import java.util.ArrayList;
 
 /**
+ * All solution offers the business has published.
  *
  * @author kal bugrara
  */

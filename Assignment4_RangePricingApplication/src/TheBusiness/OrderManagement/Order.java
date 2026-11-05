@@ -1,17 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.OrderManagement;
 
 import java.util.ArrayList;
 import TheBusiness.CustomerManagement.CustomerProfile;
-import TheBusiness.MarketModel.MarketChannelAssignment;
 import TheBusiness.ProductManagement.Product;
 import TheBusiness.SalesManagement.SalesPersonProfile;
 
 /**
+ * One customer order, placed by a sales person. It holds the order items and
+ * can compare what was actually charged against the target prices.
  *
  * @author kal bugrara
  */
@@ -20,7 +23,6 @@ public class Order {
     ArrayList<OrderItem> orderitems;
     CustomerProfile customer;
     SalesPersonProfile salesperson;
-    MarketChannelAssignment mca;
     String status;
 
     public Order(){}
@@ -83,7 +85,10 @@ public class Order {
         
     }
     
-    public void CancelOrder(){
+    public String getStatus(){
+    return status;
+}
+public void CancelOrder(){
         status = "Cancelled";
     }
     

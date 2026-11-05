@@ -1,16 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.OrderManagement;
 
 import java.util.ArrayList;
 import TheBusiness.CustomerManagement.CustomerProfile;
-import MarketingManagement.MarketingPersonProfile;
 import TheBusiness.SalesManagement.SalesPersonProfile;
 
 /**
+ * Every order in the business, in the order it was placed. The sales volume of
+ * the whole business is the sum of these order totals.
  *
  * @author kal bugrara
  */

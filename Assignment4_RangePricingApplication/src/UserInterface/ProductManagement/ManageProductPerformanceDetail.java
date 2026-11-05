@@ -1,17 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package UserInterface.ProductManagement;
 
-import TheBusiness.Business.Business;
 import TheBusiness.ProductManagement.Product;
 import TheBusiness.ProductManagement.ProductSummary;
-import TheBusiness.Supplier.Supplier;
 import javax.swing.JPanel;
 
 /**
+ * Shows the performance figures of a single product: sales revenue, how often
+ * it sold above and below its target price, and the margin around target.
  *
  * @author kal bugrara
  */
@@ -21,7 +23,6 @@ public class ManageProductPerformanceDetail extends javax.swing.JPanel {
      * Creates new form ManageSuppliersJPanel
      */
     JPanel CardSequencePanel;
-    Supplier selectedsupplier;
     Product selectedproduct;
 
     public ManageProductPerformanceDetail(Product product, JPanel jp) {
@@ -30,6 +31,7 @@ public class ManageProductPerformanceDetail extends javax.swing.JPanel {
         this.selectedproduct = product;
         initComponents();
         refreshTable();
+        UserInterface.ReadOnlyField.applyAll(this);
 
     }
 
@@ -93,36 +95,36 @@ public class ManageProductPerformanceDetail extends javax.swing.JPanel {
         jLabel3.setText("Product name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, -1));
 
-        productNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productNameTextFieldActionPerformed(evt);
-            }
-        });
+        productNameTextField.setEditable(false);
+        productNameTextField.setFocusable(false);
+        productNameTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 150, -1));
+        productFrequencyAboveTargetTextField.setEditable(false);
+        productFrequencyAboveTargetTextField.setFocusable(false);
+        productFrequencyAboveTargetTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productFrequencyAboveTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, -1));
 
         jLabel4.setText("Frequency Above Target");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 150, -1));
 
-        productRevenueTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productRevenueTextFieldActionPerformed(evt);
-            }
-        });
+        productRevenueTextField.setEditable(false);
+        productRevenueTextField.setFocusable(false);
+        productRevenueTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, -1));
 
         jLabel5.setText("Sales Revenues");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 110, -1));
+        productFrequencyBelowTargetTextField.setEditable(false);
+        productFrequencyBelowTargetTextField.setFocusable(false);
+        productFrequencyBelowTargetTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 150, -1));
 
         jLabel6.setText("Frequency Below Target");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 150, -1));
 
-        productPricePerformanceTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productPricePerformanceTextFieldActionPerformed(evt);
-            }
-        });
+        productPricePerformanceTextField.setEditable(false);
+        productPricePerformanceTextField.setFocusable(false);
+        productPricePerformanceTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 150, -1));
 
         jLabel7.setText("Margin around target");
@@ -132,22 +134,13 @@ public class ManageProductPerformanceDetail extends javax.swing.JPanel {
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
 
     }//GEN-LAST:event_BackActionPerformed
 
-    private void productNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productNameTextFieldActionPerformed
 
-    private void productRevenueTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productRevenueTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productRevenueTextFieldActionPerformed
 
-    private void productPricePerformanceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productPricePerformanceTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productPricePerformanceTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

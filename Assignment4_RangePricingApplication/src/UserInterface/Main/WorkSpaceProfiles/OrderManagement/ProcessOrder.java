@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package UserInterface.Main.WorkSpaceProfiles.OrderManagement;
 
@@ -21,6 +23,9 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Builds a new order for one customer: pick a supplier, pick a product from
+ * its catalog, agree a price within the product's floor and ceiling, and add
+ * it to the order.
  *
  * @author kal bugrara
  */
@@ -42,6 +47,7 @@ public class ProcessOrder extends javax.swing.JPanel {
         CardSequencePanel = jp;
         this.business = bz;
         initComponents();
+        UserInterface.ReadOnlyField.applyAll(this);
         UserInterface.TableStyle.apply(SupplierCatalogTable);
         UserInterface.TableStyle.apply(OrderItemsTable);
         customer = cp;
@@ -140,8 +146,6 @@ public class ProcessOrder extends javax.swing.JPanel {
             row[1] = pt.getFloorPrice();
             row[2] = pt.getCeilingPrice();
             row[3] = pt.getTargetPrice();
-//                row[1] = pt.getPerformanceMeasure();
-//               row[2] = la.getName();
             ((DefaultTableModel) SupplierCatalogTable.getModel()).addRow(row);
         }
 
@@ -183,7 +187,6 @@ public class ProcessOrder extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         productNameTextField = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 246, 248));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -227,7 +230,7 @@ public class ProcessOrder extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -235,9 +238,6 @@ public class ProcessOrder extends javax.swing.JPanel {
             }
         });
         SupplierCatalogTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SupplierCatalogTableMouseEntered(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 SupplierCatalogTableMousePressed(evt);
             }
@@ -271,14 +271,6 @@ public class ProcessOrder extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        OrderItemsTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                OrderItemsTableMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                OrderItemsTableMousePressed(evt);
-            }
-        });
         jScrollPane4.setViewportView(OrderItemsTable);
 
 
@@ -308,7 +300,13 @@ public class ProcessOrder extends javax.swing.JPanel {
 
         jLabel10.setText("Customer");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 150, -1));
+        customerTextField.setEditable(false);
+        customerTextField.setFocusable(false);
+        customerTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(customerTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 160, -1));
+        salesPersonTextField.setEditable(false);
+        salesPersonTextField.setFocusable(false);
+        salesPersonTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(salesPersonTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 160, -1));
 
         jLabel11.setText("Sales person");
@@ -319,27 +317,29 @@ public class ProcessOrder extends javax.swing.JPanel {
 
         jLabel6.setText("Frequency Below Target");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 25, 150, -1));
+        productFrequencyBelowTargetTextField.setEditable(false);
+        productFrequencyBelowTargetTextField.setFocusable(false);
+        productFrequencyBelowTargetTextField.setBackground(new java.awt.Color(238, 241, 245));
         jPanel1.add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 45, 150, -1));
 
         jLabel4.setText("Frequency Above Target");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 25, 150, -1));
+        productFrequencyAboveTargetTextField.setEditable(false);
+        productFrequencyAboveTargetTextField.setFocusable(false);
+        productFrequencyAboveTargetTextField.setBackground(new java.awt.Color(238, 241, 245));
         jPanel1.add(productFrequencyAboveTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 45, 150, -1));
 
         jLabel7.setText("Margin around target");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 75, 150, -1));
 
-        productPricePerformanceTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productPricePerformanceTextFieldActionPerformed(evt);
-            }
-        });
+        productPricePerformanceTextField.setEditable(false);
+        productPricePerformanceTextField.setFocusable(false);
+        productPricePerformanceTextField.setBackground(new java.awt.Color(238, 241, 245));
         jPanel1.add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 95, 150, -1));
 
-        productRevenueTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productRevenueTextFieldActionPerformed(evt);
-            }
-        });
+        productRevenueTextField.setEditable(false);
+        productRevenueTextField.setFocusable(false);
+        productRevenueTextField.setBackground(new java.awt.Color(238, 241, 245));
         jPanel1.add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 95, 150, -1));
 
         jLabel5.setText("Sales Revenues");
@@ -348,34 +348,21 @@ public class ProcessOrder extends javax.swing.JPanel {
         jLabel3.setText("Product name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 25, 110, -1));
 
-        productNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productNameTextFieldActionPerformed(evt);
-            }
-        });
+        productNameTextField.setEditable(false);
+        productNameTextField.setFocusable(false);
+        productNameTextField.setBackground(new java.awt.Color(238, 241, 245));
         jPanel1.add(productNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 45, 150, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 600, 130));
         jPanel1.getAccessibleContext().setAccessibleName("Business -wide Product Intelligence");
 
-        jButton2.setBackground(new java.awt.Color(45, 108, 223));
-        jButton2.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setFocusPainted(false);
-        jButton2.setText("Add2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 172, 110, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         currentOrder.CancelOrder();
         CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_BackActionPerformed
 
@@ -383,7 +370,7 @@ public class ProcessOrder extends javax.swing.JPanel {
         // TODO add your handling code here:
         currentOrder.Submit();
         CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
 
     }//GEN-LAST:event_NextActionPerformed
@@ -412,53 +399,64 @@ public class ProcessOrder extends javax.swing.JPanel {
 
     }//GEN-LAST:event_SupplierCatalogTableMousePressed
 
-    private void productNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productNameTextFieldActionPerformed
 
-    private void productRevenueTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productRevenueTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productRevenueTextFieldActionPerformed
 
-    private void productPricePerformanceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productPricePerformanceTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productPricePerformanceTextFieldActionPerformed
 
-    private void SupplierCatalogTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupplierCatalogTableMouseEntered
 
-    private void OrderItemsTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemsTableMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OrderItemsTableMouseEntered
 
-    private void OrderItemsTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemsTableMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OrderItemsTableMousePressed
 
     private void AddProductItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProductItemActionPerformed
         // TODO add your handling code here:
 
-        int suppliertablesize = SupplierCatalogTable.getRowCount(); 
+        int suppliertablesize = SupplierCatalogTable.getRowCount();
         int selectedrow = SupplierCatalogTable.getSelectionModel().getLeadSelectionIndex();
 
         if (selectedrow < 0 || selectedrow > suppliertablesize - 1) {
-            return; //no thanks
+            javax.swing.JOptionPane.showMessageDialog(this, "Pick a product in the table first.");
+            return;
         }
         selectedproduct = (Product) SupplierCatalogTable.getValueAt(selectedrow, 0);
-        if (selectedproduct == null) return;
-        
-        OrderItem item = currentOrder.newOrderItem(selectedproduct, 1000, 1);
-            Object[] row = new Object[5];
+        if (selectedproduct == null) {
+            return;
+        }
 
-            row[0] = String.valueOf(item.getSelectedProduct());
-            row[1] = String.valueOf(item.getActualPrice());
-            row[2] = String.valueOf(item.getQuantity());
-            row[3] = String.valueOf(item.getOrderItemTotal());
+        // Ask for the agreed price. The target price is offered as the default,
+        // and the floor and ceiling show the range the seller may negotiate in.
+        String pricetext = javax.swing.JOptionPane.showInputDialog(this,
+                "Price for " + selectedproduct + "  (floor " + selectedproduct.getFloorPrice()
+                + ", target " + selectedproduct.getTargetPrice()
+                + ", ceiling " + selectedproduct.getCeilingPrice() + ")",
+                String.valueOf(selectedproduct.getTargetPrice()));
+        if (pricetext == null) {
+            return; // cancelled
+        }
+        String quantitytext = javax.swing.JOptionPane.showInputDialog(this, "Quantity", "1");
+        if (quantitytext == null) {
+            return;
+        }
 
-            ((DefaultTableModel) OrderItemsTable.getModel()).addRow(row);
- 
-            
+        int price;
+        int quantity;
+        try {
+            price = Integer.parseInt(pricetext.trim());
+            quantity = Integer.parseInt(quantitytext.trim());
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Price and quantity must be whole numbers.");
+            return;
+        }
+        if (price <= 0 || quantity <= 0) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Price and quantity must be greater than zero.");
+            return;
+        }
+
+        OrderItem item = currentOrder.newOrderItem(selectedproduct, price, quantity);
+
+        Object[] row = new Object[4];
+        row[0] = item.getSelectedProduct();
+        row[1] = item.getActualPrice();
+        row[2] = item.getQuantity();
+        row[3] = item.getOrderItemTotal();
+        ((DefaultTableModel) OrderItemsTable.getModel()).addRow(row);
 
     }//GEN-LAST:event_AddProductItemActionPerformed
 
@@ -467,15 +465,6 @@ public class ProcessOrder extends javax.swing.JPanel {
      refreshSupplierProductCatalogTable();
     }//GEN-LAST:event_SuppliersComboBoxActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        //1. How many rows do we have in the table ??
-        //2. What the row number that selected ??
-        //2.5 Is the row rumber within range
-        //3. Extract the data in the row (product) ??
-        //4. Add the selected product to the shopping cart. ??
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -486,7 +475,6 @@ public class ProcessOrder extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> SuppliersComboBox;
     private javax.swing.JTextField customerTextField;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

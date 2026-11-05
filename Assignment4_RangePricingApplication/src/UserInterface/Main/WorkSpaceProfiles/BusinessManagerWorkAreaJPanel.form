@@ -97,10 +97,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage The Business"/>
         <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4IdentifyResourceAssetsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton9">
       <Properties>
@@ -118,9 +117,6 @@
         <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton10">
       <Properties>
@@ -156,9 +152,6 @@
         <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6IdentifyEventsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton8">
       <Properties>
@@ -176,9 +169,6 @@
         <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton11">
       <Properties>

@@ -19,6 +19,8 @@ import UserInterface.Reports.ReportViewerJPanel;
 import javax.swing.JPanel;
 
 /**
+ * Work area of a sales person: serve a customer, review the orders of the
+ * business, and open the reports.
  *
  * @author kal
  */
@@ -116,27 +118,17 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
         jButton9.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Manage Profile");
-        jButton9.setFocusPainted(false);
         jButton9.setToolTipText("Not part of Assignment 4");
         jButton9.setEnabled(false);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
+        jButton9.setFocusPainted(false);
 
         jButton8.setBackground(new java.awt.Color(45, 108, 223));
         jButton8.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Review Commission");
-        jButton8.setFocusPainted(false);
         jButton8.setToolTipText("Not part of Assignment 4");
         jButton8.setEnabled(false);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
+        jButton8.setFocusPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -182,10 +174,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4IdentifyResourceAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4IdentifyResourceAssetsActionPerformed
-        
-// TODO add your handling code here:
 
- 
         String customername = customerNameTextField.getText();
         if (customername.isEmpty()) return;
         CustomerProfile selectedcustomer = business.getCustomerDirectory().findCustomer(customername);
@@ -193,29 +182,18 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
         ProcessOrder aos = new ProcessOrder(business, selectedcustomer ,salesperson, CardSequencePanel);
 
         CardSequencePanel.add("ManageVulns", aos);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_jButton4IdentifyResourceAssetsActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // Not part of Assignment 4. The screen this button opened was never
-        // built, so it does nothing rather than clearing the work area.
-}//GEN-LAST:event_jButton9ActionPerformed
-
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
 
         ManageSalesPersonOrders iet = new ManageSalesPersonOrders(business, CardSequencePanel);
 
         CardSequencePanel.add("FindResourceAsset", iet);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // Not part of Assignment 4. The screen this button opened was never
-        // built, so it does nothing rather than clearing the work area.
-}//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         ReportViewerJPanel reportviewer = new ReportViewerJPanel(business, CardSequencePanel);
@@ -225,6 +203,7 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField customerNameTextField;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton4;
@@ -233,7 +212,6 @@ public class SalesPersonWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblSubtitle;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField customerNameTextField;
     // End of variables declaration//GEN-END:variables
 
 }

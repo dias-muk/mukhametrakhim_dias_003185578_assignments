@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package UserInterface.Main;
 
@@ -18,6 +20,9 @@ import UserInterface.Main.WorkSpaceProfiles.SalesPersonWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
+ * Main window. The left side is the login form; the right side is a card panel
+ * that holds whichever work area or screen is currently open. Logging in
+ * chooses the work area from the profile behind the account.
  *
  * @author kal bugrara
  */
@@ -167,6 +172,8 @@ public class PricingMainFrame extends javax.swing.JFrame {
             CardSequencePanel.add("Marketing", marketingworkarea);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).show(CardSequencePanel, "Marketing");
 
+        // No admin account is created by DataGenerator, so this branch is
+        // unreachable today. It is kept because the skeleton defines the role.
         } else if (profile instanceof EmployeeProfile) {
             BusinessManagerWorkAreaJPanel bzmanagerworkarea
                     = new BusinessManagerWorkAreaJPanel(business, CardSequencePanel);

@@ -90,11 +90,10 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Markets"/>
+        <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4IdentifyResourceAssetsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton10">
       <Properties>
@@ -107,7 +106,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Channels"/>
+        <Property name="text" type="java.lang.String" value="Manage Suppliers"/>
         <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -126,13 +125,10 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Prices"/>
-        <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="toolTipText" type="java.lang.String" value="Not part of Assignment 4"/>
         <Property name="enabled" type="boolean" value="false"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6IdentifyEventsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton11">
       <Properties>

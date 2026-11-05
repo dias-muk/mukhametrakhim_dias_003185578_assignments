@@ -159,11 +159,6 @@ public class ReportViewerJPanel extends javax.swing.JPanel {
         lblPick.setText("Report");
 
         cmbReport.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        cmbReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbReportActionPerformed(evt);
-            }
-        });
 
         btnRun.setBackground(new java.awt.Color(45, 108, 223));
         btnRun.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -257,9 +252,6 @@ public class ReportViewerJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbReportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbReportActionPerformed
 
     private void btnRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunActionPerformed
         showSelectedReport();
@@ -267,7 +259,7 @@ public class ReportViewerJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         CardSequencePanel.remove(this);
-        ((CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
+        ((CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
         CardSequencePanel.revalidate();
         CardSequencePanel.repaint();
     }//GEN-LAST:event_btnBackActionPerformed

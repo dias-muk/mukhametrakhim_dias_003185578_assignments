@@ -1,13 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.ProductManagement;
 
 import java.util.ArrayList;
 
 /**
+ * The products of one supplier.
  *
  * @author kal bugrara
  */
@@ -20,7 +23,7 @@ public class ProductCatalog {
         type = n;
          products = new ArrayList();  ///create the list of elements otherwise it is null
     }
-// new ProductCatalog(); or new ProductCatalog("Printers");
+/** A catalog with no type set, for example when the supplier sells one kind of product. */
     public ProductCatalog(    ) {
         type = "unknown";
         products = new ArrayList();

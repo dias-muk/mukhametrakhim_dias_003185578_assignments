@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.ProductManagement;
 
@@ -9,6 +11,10 @@ import java.util.ArrayList;
 import TheBusiness.OrderManagement.OrderItem;
 
 /**
+ * A product sold by a supplier. Range pricing means it carries three prices: a
+ * floor it should not be sold below, a ceiling it should not exceed, and a
+ * target the business aims for. The product also keeps every order item that
+ * sold it, which is how the reports measure its performance.
  *
  * @author kal bugrara
  */

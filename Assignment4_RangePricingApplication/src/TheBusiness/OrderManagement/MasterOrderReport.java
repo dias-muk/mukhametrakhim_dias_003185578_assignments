@@ -4,6 +4,7 @@ package TheBusiness.OrderManagement;
 import java.util.ArrayList;
 
 /**
+ * Summary view over the master order list.
  *
  * @author kal bugrara
  */

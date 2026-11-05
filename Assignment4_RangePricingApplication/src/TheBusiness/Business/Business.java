@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.Business;
 
@@ -26,6 +28,10 @@ import TheBusiness.ProductManagement.ExpensiveProductsReport;
 import TheBusiness.Supplier.SupplierReport;
 
 /**
+ * Root of the model. One Business owns every directory and catalog in the
+ * application: people, customers, sales and marketing staff, suppliers,
+ * orders, and the market side of the pricing model. Everything the screens
+ * show is reached from here.
  *
  * @author kal bugrara
  */
@@ -41,7 +47,6 @@ public class Business {
     MarketChannelComboCatalog marketChannelComboCatalog;
     SolutionOfferCatalog solutionoffercatalog;
     CustomerDirectory customerdirectory;
-    // EmployeeDirectory employeedirectory;
     SalesPersonDirectory salespersondirectory;
     UserAccountDirectory useraccountdirectory;
     MarketingPersonDirectory marketingpersondirectory;
@@ -63,12 +68,7 @@ public class Business {
 
         channelcatalog = new ChannelCatalog();
 
-//        Channel c = channelcatalog.newChannel("tv");
-//        market.addValidChannel(c);
-//        c = channelcatalog.newChannel("");
-
         marketChannelComboCatalog = new MarketChannelComboCatalog();
-//        MarketChannelAssignment mca2 = marketChannelComboCatalog.newMarketChannelCombo(market, c);
 
         solutionoffercatalog = new SolutionOfferCatalog();
         mastersolutionorderlist  = new MasterSolutionOrderList();
@@ -162,8 +162,5 @@ public class Business {
     public MasterSolutionOrderList getMasterSolutionOrderList(){
         return mastersolutionorderlist;
     }
-    //       public EmployeeDirectory getEmployeeDirectory() {
-    //      return employeedirectory;
-    //  }
 
 }

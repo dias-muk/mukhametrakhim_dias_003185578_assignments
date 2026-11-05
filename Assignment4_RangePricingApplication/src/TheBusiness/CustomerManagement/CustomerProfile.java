@@ -1,24 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.CustomerManagement;
 
 import java.util.ArrayList;
-import TheBusiness.MarketModel.Market;
 import TheBusiness.OrderManagement.Order;
 import TheBusiness.Personnel.Person;
 import TheBusiness.Personnel.Profile;
 
 /**
+ * A customer of the business and the orders placed for them. Its total sales
+ * is the sum of its order totals, which is what Report #2 ranks customers by.
  *
  * @author kal bugrara
  */
 public class CustomerProfile extends Profile {
 
     ArrayList<Order> orders;
-    ArrayList<Market> markets;
 
     Person person;
 

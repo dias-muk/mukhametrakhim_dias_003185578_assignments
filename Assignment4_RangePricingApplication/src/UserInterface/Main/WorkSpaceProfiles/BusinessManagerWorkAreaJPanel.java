@@ -11,12 +11,13 @@
 package UserInterface.Main.WorkSpaceProfiles;
 
 import TheBusiness.Business.Business;
-import UserInterface.ManageTheBusiness.ManageTheBusinessJPanel;
 import UserInterface.ProductManagement.ManageSuppliersJPanel;
 import UserInterface.Reports.ReportViewerJPanel;
 import javax.swing.JPanel;
 
 /**
+ * Work area of a business administrator. No admin account is created, so this
+ * screen is not reachable from the login today.
  *
  * @author kal
  */
@@ -70,11 +71,8 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Manage The Business");
         jButton4.setFocusPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4IdentifyResourceAssetsActionPerformed(evt);
-            }
-        });
+        jButton4.setToolTipText("Not part of Assignment 4");
+        jButton4.setEnabled(false);
 
         jButton9.setBackground(new java.awt.Color(45, 108, 223));
         jButton9.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -83,11 +81,6 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jButton9.setFocusPainted(false);
         jButton9.setToolTipText("Not part of Assignment 4");
         jButton9.setEnabled(false);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
 
         jButton10.setBackground(new java.awt.Color(45, 108, 223));
         jButton10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -107,11 +100,6 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jButton6.setFocusPainted(false);
         jButton6.setToolTipText("Not part of Assignment 4");
         jButton6.setEnabled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6IdentifyEventsActionPerformed(evt);
-            }
-        });
 
         jButton8.setBackground(new java.awt.Color(45, 108, 223));
         jButton8.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -120,11 +108,6 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jButton8.setFocusPainted(false);
         jButton8.setToolTipText("Not part of Assignment 4");
         jButton8.setEnabled(false);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         jButton11.setBackground(new java.awt.Color(45, 108, 223));
         jButton11.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -177,21 +160,7 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4IdentifyResourceAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4IdentifyResourceAssetsActionPerformed
-        // TODO add your handling code here:
-        CardSequencePanel.removeAll();
 
-        ManageTheBusinessJPanel aos = new ManageTheBusinessJPanel(business, CardSequencePanel);
-
-        CardSequencePanel.add("ManageVulns", aos);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-
-    }//GEN-LAST:event_jButton4IdentifyResourceAssetsActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // Not part of Assignment 4. The screen this button opened was never
-        // built, so it does nothing rather than clearing the work area.
-}//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
@@ -199,19 +168,11 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         ManageSuppliersJPanel iet = new ManageSuppliersJPanel(business, CardSequencePanel);
 
         CardSequencePanel.add("FindResourceAsset", iet);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton6IdentifyEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6IdentifyEventsActionPerformed
-        // Not part of Assignment 4. The screen this button opened was never
-        // built, so it does nothing rather than clearing the work area.
-}//GEN-LAST:event_jButton6IdentifyEventsActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // Not part of Assignment 4. The screen this button opened was never
-        // built, so it does nothing rather than clearing the work area.
-}//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         ReportViewerJPanel reportviewer = new ReportViewerJPanel(business, CardSequencePanel);

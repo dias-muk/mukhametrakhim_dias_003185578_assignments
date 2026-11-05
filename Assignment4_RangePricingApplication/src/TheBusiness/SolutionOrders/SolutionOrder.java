@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.SolutionOrders;
 
@@ -9,6 +11,8 @@ import TheBusiness.MarketModel.MarketChannelAssignment;
 import TheBusiness.MarketModel.SolutionOffer;
 
 /**
+ * An order placed against a solution offer rather than against individual
+ * products.
  *
  * @author kal bugrara
  */
@@ -16,10 +20,8 @@ import TheBusiness.MarketModel.SolutionOffer;
 public class SolutionOrder {
     
     SolutionOffer selectedsolutionoffer;
-  //  CustomerProfile customerprofile;
     MarketChannelAssignment marketChannelAssignment; 
     
-    //SoltionOrder so = new SolutionOrder(solutionOffer, m/c comb);
     
     public SolutionOrder(SolutionOffer so,  MarketChannelAssignment mca){
         selectedsolutionoffer = so;

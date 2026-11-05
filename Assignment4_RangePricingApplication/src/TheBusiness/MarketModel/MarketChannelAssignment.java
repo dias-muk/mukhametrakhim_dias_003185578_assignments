@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package TheBusiness.MarketModel;
 
@@ -9,6 +11,8 @@ import TheBusiness.SolutionOrders.SolutionOrder;
 import java.util.ArrayList;
 
 /**
+ * One market paired with one channel it may be reached through, and the
+ * revenue earned from solution orders placed against that pairing.
  *
  * @author kal bugrara
  */
@@ -16,9 +20,7 @@ public class MarketChannelAssignment {
 
     Market market;
     Channel channel;
-    int adbudget;
     int targetrevenue;
-//int targetrevenue;
     ArrayList<SolutionOffer> solutionofferlist;
     ArrayList<SolutionOrder> solutionorderlist;
     ArrayList<String> admessages; ///Benefits--language we use to speak to customer

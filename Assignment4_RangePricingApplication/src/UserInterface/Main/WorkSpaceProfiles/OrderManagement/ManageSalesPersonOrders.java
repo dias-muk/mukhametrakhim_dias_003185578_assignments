@@ -1,21 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package UserInterface.Main.WorkSpaceProfiles.OrderManagement;
 
 import UserInterface.ProductManagement.*;
 import TheBusiness.Business.Business;
-import TheBusiness.ProductManagement.Product;
-import TheBusiness.ProductManagement.ProductCatalog;
-import TheBusiness.ProductManagement.ProductSummary;
-import TheBusiness.Supplier.Supplier;
-import java.util.ArrayList;
+import TheBusiness.OrderManagement.Order;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Lists every order in the business with its status, total and customer.
  *
  * @author kal bugrara
  */
@@ -26,19 +25,39 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
      */
     JPanel CardSequencePanel;
     Business business;
-    Supplier selectedsupplier;
-    Product selectedproduct;
 
     public ManageSalesPersonOrders(Business bz, JPanel jp) {
         CardSequencePanel = jp;
         this.business = bz;
         initComponents();
         UserInterface.TableStyle.apply(SupplierCatalogTable);
+        refreshTable();
  
 
     }
 
  
+    /**
+     * Loads every order of the business into the table. The screen used to
+     * open with an empty table because nothing ever filled it.
+     */
+    public final void refreshTable() {
+
+        DefaultTableModel model = (DefaultTableModel) SupplierCatalogTable.getModel();
+        model.setRowCount(0);
+
+        int ordernumber = 1;
+        for (Order order : business.getMasterOrderList().getOrderList()) {
+            Object[] row = new Object[4];
+            row[0] = ordernumber;
+            row[1] = order.getStatus();
+            row[2] = order.getOrderTotal();
+            row[3] = order.getCustomer() == null ? "" : order.getCustomer().getCustomerId();
+            model.addRow(row);
+            ordernumber++;
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +68,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
     private void initComponents() {
 
         Back = new javax.swing.JButton();
-        Next = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         SupplierCatalogTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -70,17 +88,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
         });
         add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 110, 32));
 
-        Next.setBackground(new java.awt.Color(45, 108, 223));
-        Next.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        Next.setForeground(new java.awt.Color(255, 255, 255));
-        Next.setFocusPainted(false);
-        Next.setText("Next >>");
-        Next.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextActionPerformed(evt);
-            }
-        });
-        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 110, 32));
 
         SupplierCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,14 +103,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
-            }
-        });
-        SupplierCatalogTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SupplierCatalogTableMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                SupplierCatalogTableMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(SupplierCatalogTable);
@@ -123,28 +122,16 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_BackActionPerformed
 
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        // TODO add your handling code here:
-        
- 
-    }//GEN-LAST:event_NextActionPerformed
 
-    private void SupplierCatalogTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMousePressed
-        // TODO add your handling code 
-    }//GEN-LAST:event_SupplierCatalogTableMousePressed
 
-    private void SupplierCatalogTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupplierCatalogTableMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
-    private javax.swing.JButton Next;
     private javax.swing.JTable SupplierCatalogTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;

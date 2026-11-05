@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * INFO 5100 - Application Engineering and Development
+ * Assignment 4 - Range Pricing Application
+ *
+ * Starter code by Prof. Kal Bugrara.
+ * Comments added by Dias Mukhametrakhim, NUID 003185578.
  */
 package UserInterface.ProductManagement;
 
@@ -15,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Browses the catalog of one supplier and shows the performance figures of the
+ * product selected in the table.
  *
  * @author kal bugrara
  */
@@ -34,6 +38,7 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         initComponents();
         UserInterface.TableStyle.apply(SupplierCatalogTable);
         initializeTable();
+        UserInterface.ReadOnlyField.applyAll(this);
 
     }
 
@@ -71,8 +76,6 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
                 row[1] = pt.getFloorPrice();
                 row[2] = pt.getCeilingPrice();
                 row[3] = pt.getTargetPrice();
-//                row[1] = pt.getPerformanceMeasure();
-//               row[2] = la.getName();
                 ((DefaultTableModel) SupplierCatalogTable.getModel()).addRow(row);
             }
 
@@ -103,8 +106,6 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
             row[1] = pt.getFloorPrice();
             row[2] = pt.getCeilingPrice();
             row[3] = pt.getTargetPrice();
-//                row[1] = pt.getPerformanceMeasure();
-//               row[2] = la.getName();
             ((DefaultTableModel) SupplierCatalogTable.getModel()).addRow(row);
         }
 
@@ -187,7 +188,7 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -195,9 +196,6 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
             }
         });
         SupplierCatalogTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SupplierCatalogTableMouseEntered(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 SupplierCatalogTableMousePressed(evt);
             }
@@ -215,36 +213,36 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         jLabel3.setText("Product name");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 110, -1));
 
-        productNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productNameTextFieldActionPerformed(evt);
-            }
-        });
+        productNameTextField.setEditable(false);
+        productNameTextField.setFocusable(false);
+        productNameTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 150, -1));
+        productFrequencyAboveTargetTextField.setEditable(false);
+        productFrequencyAboveTargetTextField.setFocusable(false);
+        productFrequencyAboveTargetTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productFrequencyAboveTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 150, -1));
 
         jLabel4.setText("Frequency Above Target");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 160, -1));
 
-        productRevenueTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productRevenueTextFieldActionPerformed(evt);
-            }
-        });
+        productRevenueTextField.setEditable(false);
+        productRevenueTextField.setFocusable(false);
+        productRevenueTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 495, 150, -1));
 
         jLabel5.setText("Sales Revenues");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 475, 110, -1));
+        productFrequencyBelowTargetTextField.setEditable(false);
+        productFrequencyBelowTargetTextField.setFocusable(false);
+        productFrequencyBelowTargetTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 150, -1));
 
         jLabel6.setText("Frequency Below Target");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 160, -1));
 
-        productPricePerformanceTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productPricePerformanceTextFieldActionPerformed(evt);
-            }
-        });
+        productPricePerformanceTextField.setEditable(false);
+        productPricePerformanceTextField.setFocusable(false);
+        productPricePerformanceTextField.setBackground(new java.awt.Color(238, 241, 245));
         add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 495, 150, -1));
 
         jLabel7.setText("Margin around target");
@@ -257,16 +255,22 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_BackActionPerformed
 
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         // TODO add your handling code here:
         
+        if (selectedproduct == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Pick a product in the table first.");
+            return;
+        }
+
         ManageProductPerformanceDetail mppd = new ManageProductPerformanceDetail(selectedproduct, CardSequencePanel);
         CardSequencePanel.add(mppd);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).last(CardSequencePanel);
 
     }//GEN-LAST:event_NextActionPerformed
 
@@ -274,8 +278,6 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         refreshTable();
-        //String sname = (String) SuppliersComboBox.getSelectedItem();
-        //selectedsupplier = business.getSupplierDirectory().findSupplier(sname);
 
 
     }//GEN-LAST:event_SuppliersComboBoxActionPerformed
@@ -303,21 +305,9 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
         productPricePerformanceTextField.setText(String.valueOf(productsummary.getProductPricePerformance()));
     }//GEN-LAST:event_SupplierCatalogTableMousePressed
 
-    private void productNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productNameTextFieldActionPerformed
 
-    private void productRevenueTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productRevenueTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productRevenueTextFieldActionPerformed
 
-    private void productPricePerformanceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productPricePerformanceTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productPricePerformanceTextFieldActionPerformed
 
-    private void SupplierCatalogTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierCatalogTableMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupplierCatalogTableMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
