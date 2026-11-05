@@ -1,23 +1,35 @@
-# INFO 5100 / 5101 — Assignments
+# INFO 5100 — Assignments
 
 Dias Mukhametrakhim · NUID 003185578 · Fall 2026
 
-Each assignment lives on its own branch (`Assignment1`, `Assignment2`, …)
-in a folder named after it, as a standalone Apache NetBeans (Ant) project.
+Each assignment is a standalone Apache NetBeans (Ant) project in its own folder,
+built with JDK 19 and NetBeans 16. Each one is pushed to its own branch
+(`Assignment2`, `Assignment3`, `Assignment4`, …), and because every branch
+continues from the one before it, the latest branch holds all of them.
 
-## Assignment 2 - Coffee Shop POS
+| Assignment | Folder | Main class | README |
+|---|---|---|---|
+| 1 – Person Profile | `Assignment1_PersonProfile` | `UI.MainJFrame` | [README](Assignment1_PersonProfile/README.md) |
+| 2 – Coffee Shop POS | `Assignment2_CoffeeShopPOS` | `UI.MainJFrame` | [README](Assignment2_CoffeeShopPOS/README.md) |
+| 3 – Profiles and Work Areas | `Assignment3_ProfileWorkArea` | `ProfileWorkAreaMainFrame` | [README](Assignment3_ProfileWorkArea/README.md) |
+| 4 – Range Pricing Application | `Assignment4_RangePricingApplication` | `TheBusiness.RangePricingApplication` | [README](Assignment4_RangePricingApplication/README.md) |
 
-Java Swing point-of-sale app for a coffee shop manager (NetBeans 16, JDK 19).
-Run `UI.MainJFrame`. Demo data is loaded at start-up by `ConfigureABusiness`:
-7 products, 7 customers (three named John Smith for the search test) and 5 orders.
+## Opening a project
 
-- **Manage Products** - add, update, delete (products used by orders are protected)
-- **New Customer Order** - register a customer and place an order with one product;
-  "Find Existing" places an order for a returning customer (one open order at a time)
-- **Search Customers** - by ID (opens the profile) or by name (all matches);
-  deleting a customer deletes their orders too
-- **List Orders** - all orders; view/edit or delete the selected order
+File → Open Project, pick the assignment folder, then Run. Each project keeps the
+libraries it needs under its own `lib/` folder, so a fresh clone builds without
+any further setup.
 
-Design: `Business` owns `ProductCatalog`, `CustomerDirectory` and `OrderDirectory`;
-directories create objects through factory methods. The UI uses a CardLayout
-container with push/pop navigation. Order type, payment method and status are enums.
+## What each one covers
+
+- **Assignment 1** separates a model from the screens that edit it: one `Person`
+  with two `Address` objects in different roles and a `BankAccount`.
+- **Assignment 2** adds directories that own their objects and create them
+  through factory methods, enums for the fixed value sets, and CardLayout
+  navigation.
+- **Assignment 3** adds people with several roles, user accounts and a login that
+  opens a different work area per role.
+- **Assignment 4** generates a business large enough to report on — 50 suppliers,
+  1500 products, 300 customers and around 605 orders — and reports on it.
+
+Assignments 3 and 4 are built on skeleton projects by Kal Bugrara.

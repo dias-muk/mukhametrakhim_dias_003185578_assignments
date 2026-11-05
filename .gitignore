@@ -26,3 +26,9 @@ nbproject/private/
 /Assignment1_PersonProfile/nbproject/private/
 /Assignment2_CoffeeShopPOS/nbproject/private/
 **/nbproject/private/
+
+# AI usage reports are submitted on Canvas, not kept in the repo
+AI_Usage_Report*
+
+# local design notes, not part of any submission
+docs/
