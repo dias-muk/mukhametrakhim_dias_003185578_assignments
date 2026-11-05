@@ -21,6 +21,9 @@ import TheBusiness.SalesManagement.SalesPersonDirectory;
 import TheBusiness.Supplier.Supplier;
 import TheBusiness.Supplier.SupplierDirectory;
 import TheBusiness.UserAccountManagement.UserAccountDirectory;
+import TheBusiness.CustomerManagement.CustomersReport;
+import TheBusiness.ProductManagement.ExpensiveProductsReport;
+import TheBusiness.Supplier.SupplierReport;
 
 /**
  *
@@ -100,6 +103,21 @@ public class Business {
         }
         return supplier.prepareProductsReport();
 
+    }
+    
+    /** Report #1 - all products, most expensive first. */
+    public ExpensiveProductsReport getExpensiveProductsReport() {
+        return new ExpensiveProductsReport(suppliers);
+    }
+
+    /** Report #2 - customers ranked by total sales. */
+    public CustomersReport getCustomersReport() {
+        return customerdirectory.generatCustomerPerformanceReport();
+    }
+
+    /** Report #3 - supplier totals, loyalty and concentration scores. */
+    public SupplierReport getSupplierReport() {
+        return new SupplierReport(suppliers, customerdirectory.getCustomerList().size());
     }
 
     public ArrayList<ProductSummary> getSupplierProductsAlwaysAboveTarget(String n) {
