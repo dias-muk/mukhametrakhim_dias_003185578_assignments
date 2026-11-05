@@ -18,7 +18,8 @@ public class Product {
     private int ceilingPrice;
     private int targetPrice;
     ArrayList<OrderItem> orderitems;
-        public Product( int fp, int cp, int tp) {
+    
+    public Product( int fp, int cp, int tp) {
 
         floorPrice = fp;
         ceilingPrice = cp;
@@ -26,6 +27,7 @@ public class Product {
         orderitems = new ArrayList();
         
     }
+        
     public Product(String n, int fp, int cp, int tp) {
         name = n;
         floorPrice = fp;
@@ -33,16 +35,22 @@ public class Product {
         targetPrice = tp;
         orderitems = new ArrayList();
     }
-        public Product updateProduct(int fp, int cp, int tp) {
+    
+    public Product updateProduct(int fp, int cp, int tp) {
         floorPrice = fp;
         ceilingPrice = cp;
         targetPrice = tp;
         return this; //returns itself
     }
-    public int getTargetPrice() {return targetPrice;}
+    
+    public int getTargetPrice() {
+        return targetPrice;
+    }
+    
     public void addOrderItem(OrderItem oi){     
         orderitems.add(oi);
     }
+    
     //Number of item sales above target 
     public int getNumberOfProductSalesAboveTarget(){
         int sum = 0;
@@ -51,6 +59,7 @@ public class Product {
         }
         return sum;
     }
+    
     public int getNumberOfProductSalesBelowTarget(){
         int sum = 0;
         for (OrderItem oi: orderitems){
@@ -59,7 +68,7 @@ public class Product {
         return sum;
     }    
     
-        public boolean isProductAlwaysAboveTarget(){
+    public boolean isProductAlwaysAboveTarget(){
         
         for (OrderItem oi: orderitems){
             if(oi.isActualAboveTarget()==false) return false; //
@@ -71,32 +80,45 @@ public class Product {
     // is $500 above the expected target. If the actual is $1800 then the lose will be $200
     // Add all these difference to get the total including wins and loses
     
-        public int getOrderPricePerformance() {
+    public int getOrderPricePerformance() {
         int sum = 0;
         for (OrderItem oi : orderitems) {
             sum = sum + oi.calculatePricePerformance();     //positive and negative values       
         }
         return sum;
     }
-        public int getSalesVolume() {
+    
+    public int getSalesVolume() {
         int sum = 0;
         for (OrderItem oi : orderitems) {
             sum = sum + oi.getOrderItemTotal();     //positive and negative values       
         }
         return sum;
     }
+    
     public void setName(String n){
         name = n;
     }
+    
     @Override
     public String toString(){
         return name;
     }
+    
     public int getFloorPrice(){
         return floorPrice;
     }
+    
     public int getCeilingPrice(){
         return ceilingPrice;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public ArrayList<OrderItem> getOrderItems(){
+        return orderitems;
     }
 
 }

@@ -87,5 +87,17 @@ public class CustomerProfile extends Profile {
     public Person getPerson() {
         return person;
     }
+    
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+    
+    public int getTotalSales() {
+        int sum = 0;
+        for (Order o : orders) {
+            sum = sum + o.getOrderTotal();
+        }
+        return sum;
+    }    
 
 }

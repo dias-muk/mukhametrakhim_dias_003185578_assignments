@@ -15,6 +15,7 @@ public class OrderItem {
     Product selectedproduct;   
     int actualPrice;
     int quantity;
+    Order order;
 
     public OrderItem(Product p, int paidprice, int q) {
         selectedproduct = p;
@@ -76,6 +77,14 @@ public class OrderItem {
 
     public int getQuantity() {
         return quantity;
+    }
+    
+    public void setOrder(Order o){
+        order = o;
+    }
+    
+    public Order getOrder(){
+        return order;
     }
     
 }

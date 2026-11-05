@@ -41,6 +41,7 @@ public class Order {
     }
     public OrderItem newOrderItem(Product p, int actualprice, int q) {
         OrderItem oi = new OrderItem(p, actualprice, q);
+        oi.setOrder(this);
         orderitems.add(oi);
         return oi;
     }
@@ -81,10 +82,16 @@ public class Order {
         else {return false;}
         
     }
-public void CancelOrder(){
-    status = "Cancelled";
-}
-public void Submit(){
-    status = "Submitted";
-}
+    
+    public void CancelOrder(){
+        status = "Cancelled";
+    }
+    
+    public void Submit(){
+        status = "Submitted";
+    }
+    
+    public CustomerProfile getCustomer() {
+        return customer;
+    }
 }
