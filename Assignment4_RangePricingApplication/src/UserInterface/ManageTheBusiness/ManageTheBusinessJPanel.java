@@ -47,9 +47,13 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(244, 246, 248));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(203, 213, 225));
+        Back.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(31, 58, 95));
+        Back.setFocusPainted(false);
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +62,10 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
         });
         add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
+        Next.setBackground(new java.awt.Color(45, 108, 223));
+        Next.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Next.setForeground(new java.awt.Color(255, 255, 255));
+        Next.setFocusPainted(false);
         Next.setText("Next >>");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +77,8 @@ public class ManageTheBusinessJPanel extends javax.swing.JPanel {
         jLabel1.setText("Business Name");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 95));
         jLabel2.setText("Manage The Business");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 550, -1));
     }// </editor-fold>//GEN-END:initComponents

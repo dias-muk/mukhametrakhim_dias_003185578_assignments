@@ -69,9 +69,13 @@ public class ManageProductPerformanceDetail1 extends javax.swing.JPanel {
         productPricePerformanceTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(244, 246, 248));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(203, 213, 225));
+        Back.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(31, 58, 95));
+        Back.setFocusPainted(false);
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +84,8 @@ public class ManageProductPerformanceDetail1 extends javax.swing.JPanel {
         });
         add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 95));
         jLabel2.setText("Product Performance Summary");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 550, -1));
 
@@ -119,7 +124,7 @@ public class ManageProductPerformanceDetail1 extends javax.swing.JPanel {
         });
         add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 150, -1));
 
-        jLabel7.setText("Marign around target");
+        jLabel7.setText("Margin around target");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 

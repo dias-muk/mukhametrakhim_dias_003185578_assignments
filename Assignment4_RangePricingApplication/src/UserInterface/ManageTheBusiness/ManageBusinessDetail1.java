@@ -47,9 +47,13 @@ public class ManageBusinessDetail1 extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(244, 246, 248));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(203, 213, 225));
+        Back.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(31, 58, 95));
+        Back.setFocusPainted(false);
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +62,8 @@ public class ManageBusinessDetail1 extends javax.swing.JPanel {
         });
         add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 95));
         jLabel2.setText("Business Performance Details");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 550, -1));
     }// </editor-fold>//GEN-END:initComponents

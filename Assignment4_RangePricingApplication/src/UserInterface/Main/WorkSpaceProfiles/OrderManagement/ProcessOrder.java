@@ -42,6 +42,8 @@ public class ProcessOrder extends javax.swing.JPanel {
         CardSequencePanel = jp;
         this.business = bz;
         initComponents();
+        UserInterface.TableStyle.apply(SupplierCatalogTable);
+        UserInterface.TableStyle.apply(OrderItemsTable);
         customer = cp;
         salesperson = spp;
         salesPersonTextField.setText(salesperson.getPerson().toString());
@@ -157,12 +159,10 @@ public class ProcessOrder extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         Next = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         SupplierCatalogTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         OrderItemsTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -185,27 +185,35 @@ public class ProcessOrder extends javax.swing.JPanel {
         productNameTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(244, 246, 248));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(203, 213, 225));
+        Back.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(31, 58, 95));
+        Back.setFocusPainted(false);
         Back.setText("X Cancel");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
         });
-        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, 80, -1));
+        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 502, 110, 32));
 
+        Next.setBackground(new java.awt.Color(45, 108, 223));
+        Next.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Next.setForeground(new java.awt.Color(255, 255, 255));
+        Next.setFocusPainted(false);
         Next.setText("Submit");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
             }
         });
-        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 80, -1));
+        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 110, 32));
 
         jLabel1.setText("Suppliers");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, -1));
 
         SupplierCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -236,11 +244,11 @@ public class ProcessOrder extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(SupplierCatalogTable);
 
-        jScrollPane2.setViewportView(jScrollPane1);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 600, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 600, 160));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 95));
         jLabel2.setText("Prepare Order");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 550, -1));
 
@@ -252,7 +260,7 @@ public class ProcessOrder extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Product", "Actual price", "Quanity", "Item total"
+                "Product", "Actual price", "Quantity", "Item total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -273,20 +281,23 @@ public class ProcessOrder extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(OrderItemsTable);
 
-        jScrollPane3.setViewportView(jScrollPane4);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 600, 100));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 600, 130));
 
         jLabel9.setText("Order Items");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, 20));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, 20));
 
+        jButton1.setBackground(new java.awt.Color(45, 108, 223));
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setFocusPainted(false);
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddProductItemActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 90, 30));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 110, 32));
 
         SuppliersComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,53 +318,57 @@ public class ProcessOrder extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setText("Frequency Below Target");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 150, -1));
-        jPanel1.add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 150, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 25, 150, -1));
+        jPanel1.add(productFrequencyBelowTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 45, 150, -1));
 
         jLabel4.setText("Frequency Above Target");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 150, -1));
-        jPanel1.add(productFrequencyAboveTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 150, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 25, 150, -1));
+        jPanel1.add(productFrequencyAboveTargetTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 45, 150, -1));
 
-        jLabel7.setText("Marign around target");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 150, -1));
+        jLabel7.setText("Margin around target");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 75, 150, -1));
 
         productPricePerformanceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productPricePerformanceTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, -1));
+        jPanel1.add(productPricePerformanceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 95, 150, -1));
 
         productRevenueTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productRevenueTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 150, -1));
+        jPanel1.add(productRevenueTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 95, 150, -1));
 
         jLabel5.setText("Sales Revenues");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 110, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 75, 110, -1));
 
         jLabel3.setText("Product name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 110, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 25, 110, -1));
 
         productNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productNameTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(productNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 150, -1));
+        jPanel1.add(productNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 45, 150, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 600, 170));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 600, 130));
         jPanel1.getAccessibleContext().setAccessibleName("Business -wide Product Intelligence");
 
+        jButton2.setBackground(new java.awt.Color(45, 108, 223));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setFocusPainted(false);
         jButton2.setText("Add2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, 90, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 172, 110, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -485,8 +500,6 @@ public class ProcessOrder extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField productFrequencyAboveTargetTextField;
     private javax.swing.JTextField productFrequencyBelowTargetTextField;

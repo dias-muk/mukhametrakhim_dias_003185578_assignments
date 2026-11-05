@@ -33,6 +33,7 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
         CardSequencePanel = jp;
         this.business = bz;
         initComponents();
+        UserInterface.TableStyle.apply(SupplierCatalogTable);
  
 
     }
@@ -49,30 +50,37 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
 
         Back = new javax.swing.JButton();
         Next = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         SupplierCatalogTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(244, 246, 248));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Back.setBackground(new java.awt.Color(203, 213, 225));
+        Back.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Back.setForeground(new java.awt.Color(31, 58, 95));
+        Back.setFocusPainted(false);
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
             }
         });
-        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 110, 32));
 
+        Next.setBackground(new java.awt.Color(45, 108, 223));
+        Next.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        Next.setForeground(new java.awt.Color(255, 255, 255));
+        Next.setFocusPainted(false);
         Next.setText("Next >>");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
             }
         });
-        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 80, -1));
+        add(Next, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 110, 32));
 
         SupplierCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,11 +108,11 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(SupplierCatalogTable);
 
-        jScrollPane2.setViewportView(jScrollPane1);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 123, 580, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 123, 820, 300));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 95));
         jLabel2.setText("Browse Orders");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 550, -1));
 
@@ -141,7 +149,6 @@ public class ManageSalesPersonOrders extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
 }
