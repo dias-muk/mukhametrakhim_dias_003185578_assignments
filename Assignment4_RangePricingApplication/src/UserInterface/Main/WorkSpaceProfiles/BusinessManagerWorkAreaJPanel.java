@@ -45,6 +45,8 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        lblSubtitle = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -52,86 +54,76 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
 
-        setForeground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(244, 246, 248));
 
-        jButton4.setBackground(new java.awt.Color(102, 153, 255));
-        jButton4.setFont(getFont());
+        lblTitle.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(31, 58, 95));
+        lblTitle.setText("Business Manager Work Area");
+
+        lblSubtitle.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        lblSubtitle.setForeground(new java.awt.Color(100, 116, 139));
+        lblSubtitle.setText("Manage the business, its people, suppliers and customers.");
+
+        jButton4.setBackground(new java.awt.Color(45, 108, 223));
+        jButton4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Manage The Business");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton4.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton4.setMinimumSize(new java.awt.Dimension(20, 23));
-        jButton4.setPreferredSize(new java.awt.Dimension(240, 30));
+        jButton4.setFocusPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4IdentifyResourceAssetsActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(102, 153, 255));
-        jButton9.setFont(getFont());
+        jButton9.setBackground(new java.awt.Color(45, 108, 223));
+        jButton9.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Manage Sales Personnel");
-        jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton9.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton9.setMinimumSize(new java.awt.Dimension(20, 20));
-        jButton9.setPreferredSize(new java.awt.Dimension(240, 25));
+        jButton9.setFocusPainted(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(102, 153, 255));
-        jButton10.setFont(getFont());
+        jButton10.setBackground(new java.awt.Color(45, 108, 223));
+        jButton10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Manage Suppliers");
-        jButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton10.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton10.setMinimumSize(new java.awt.Dimension(20, 20));
-        jButton10.setPreferredSize(new java.awt.Dimension(240, 25));
+        jButton10.setFocusPainted(false);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(102, 153, 255));
-        jButton6.setFont(getFont());
+        jButton6.setBackground(new java.awt.Color(45, 108, 223));
+        jButton6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Manage Prices");
-        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton6.setMaximumSize(new java.awt.Dimension(145, 40));
-        jButton6.setMinimumSize(new java.awt.Dimension(20, 20));
-        jButton6.setPreferredSize(new java.awt.Dimension(240, 25));
+        jButton6.setFocusPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6IdentifyEventsActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(102, 153, 255));
-        jButton8.setFont(getFont());
+        jButton8.setBackground(new java.awt.Color(45, 108, 223));
+        jButton8.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Manage Customers");
-        jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton8.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton8.setMinimumSize(new java.awt.Dimension(20, 20));
-        jButton8.setPreferredSize(new java.awt.Dimension(240, 25));
+        jButton8.setFocusPainted(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(102, 153, 255));
-        jButton11.setFont(getFont());
+        jButton11.setBackground(new java.awt.Color(45, 108, 223));
+        jButton11.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Performance Reports");
-        jButton11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton11.setMaximumSize(new java.awt.Dimension(200, 40));
-        jButton11.setMinimumSize(new java.awt.Dimension(20, 20));
-        jButton11.setPreferredSize(new java.awt.Dimension(240, 25));
+        jButton11.setFocusPainted(false);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -143,36 +135,38 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(69, 69, 69)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(399, Short.MAX_VALUE))
+                    .addComponent(lblTitle)
+                    .addComponent(lblSubtitle)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(lblTitle)
+                .addGap(4, 4, 4)
+                .addComponent(lblSubtitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -246,6 +240,8 @@ public class BusinessManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel lblSubtitle;
+    private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 
 }
