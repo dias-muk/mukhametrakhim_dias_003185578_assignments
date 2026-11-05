@@ -13,6 +13,8 @@ nbproject/private/
 *.jar
 *.war
 *.ear
+# ...but the NetBeans libraries a project needs to build must stay in the repo
+!**/lib/**/*.jar
 
 # --- macOS ---
 .DS_Store
