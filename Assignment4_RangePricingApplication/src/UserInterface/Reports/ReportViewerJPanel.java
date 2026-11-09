@@ -96,7 +96,12 @@ public class ReportViewerJPanel extends javax.swing.JPanel {
         tblReport.setModel(model);
     }
 
-    /** Report #3 - supplier totals, loyalty and concentration scores. */
+    /**
+     * Report #3 - supplier totals, loyalty and concentration scores.
+     *
+     * The scores go into the model as numbers, not as formatted text, so that
+     * sorting a column compares values. TableStyle formats them for display.
+     */
     private void showSupplierReport() {
 
         DefaultTableModel model = newTableModel(new String[]{
@@ -107,9 +112,9 @@ public class ReportViewerJPanel extends javax.swing.JPanel {
             model.addRow(new Object[]{
                 ss.getSupplierName(),
                 ss.getTotalSales(),
-                String.format("%.3f", ss.getLoyaltyScore()),
-                String.format("%.2f", ss.getAverageSpendingPerCustomer()),
-                String.format("%.3f", ss.getTopFiveSalesScore())
+                ss.getLoyaltyScore(),
+                ss.getAverageSpendingPerCustomer(),
+                ss.getTopFiveSalesScore()
             });
         }
         tblReport.setModel(model);
